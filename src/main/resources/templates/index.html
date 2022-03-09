@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>Mini-Survey Monkey</title>
+    <link rel="stylesheet" th:href="@{./reset.css}" />
+    <link rel="stylesheet" th:href="@{./style.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p>Create or View your Survey<a href=""> here</a></p>
+    <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="#Surveys">View Survey</a></li>
+    <li><a href="#Create">Create a Survey</a></li>
+    </ul>
+    <div id="loginSection">
+        <h2>Log In To Your Account</h2>
+        <form>
+            <input type="text" id ="user" name ="user" placeholder="Username" required></br></br>
+            <input type="password" id ="password" name ="password" placeholder="Password" required></br></br>
+            <input type="submit" id ="login" value ="Login"></br>
+        </form>
+    </div>
+    <footer>
+        <p id="copyright">Copyright &copy; 2022 Mini-SurveyMonkey Group 5</p>
+    </footer>
 </body>
 </html>

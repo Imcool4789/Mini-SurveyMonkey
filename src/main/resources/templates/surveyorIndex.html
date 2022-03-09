@@ -10,15 +10,10 @@
 <body>
 <ul>
     <li><a href="/">Home</a></li>
+    <li><a href="#View">View Survey</a></li>
+    <li><a th:if="${localUser.getAccessType().equals('surveyor')}" href="#Create">Create a Survey</a></li>
+    <li><a href="/">Logout</a></li>
 </ul>
-<div th:if='${localUser.getUser().equals("")}' id="loginSection">
-    <h2>Log In To Your Account</h2>
-    <form th:action="@{/}" th:object="${localUser}" method="post" modelAttribute="localUser">
-        <input type="text" id ="user" th:field="*{user}" placeholder="Username" required></br></br>
-        <input type="password" id ="password" th:field="*{password}" placeholder="Password" required></br></br>
-        <input type="submit" id ="login" value ="Login"></br>
-    </form>
-</div>
 <footer>
     <p id="copyright">Copyright &copy; 2022 Mini-SurveyMonkey Group 5</p>
 </footer>

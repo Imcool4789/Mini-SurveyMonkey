@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+@RepositoryRestResource
     public interface QuestionRepository extends CrudRepository<QuestionModel, Long> {
         QuestionModel findById(long id);
         List<QuestionModel> findAll();

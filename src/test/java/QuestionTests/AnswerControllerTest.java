@@ -1,6 +1,8 @@
 package QuestionTests;
+
+import Answer.AnswerController;
+import Answer.AnswerRepository;
 import Question.QuestionController;
-import Question.QuestionRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -13,27 +15,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.junit.jupiter.api.Assertions.*;
 
-@WebMvcTest(QuestionController.class)
+@WebMvcTest(AnswerControllerTest.class)
 @AutoConfigureMockMvc
-public class QuestionControllerTest {
+public class AnswerControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @MockBean
-    private QuestionRepository rep;
+    private AnswerRepository rep;
 
     @Test
     public void TestCreateMockMVC(){
-        mvc = MockMvcBuilders.standaloneSetup(new QuestionController(rep)).build();
+        mvc = MockMvcBuilders.standaloneSetup(new AnswerController(rep)).build();
         assertNotNull(mvc);
-    }
-
-    @Test
-    public void TestQuestion() throws Exception {
-     //  mvc = MockMvcBuilders.standaloneSetup(new QuestionController(rep)).build();
-       // List<QuestionModel> test = new ArrayList<>();
-       // when(rep.findAll()).thenReturn(test);
-     //   mvc.perform(get("/questions")).andDo(print()).andExpect(status().isOk());
     }
 }

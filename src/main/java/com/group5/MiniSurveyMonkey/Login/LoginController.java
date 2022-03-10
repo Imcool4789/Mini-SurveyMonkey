@@ -27,4 +27,12 @@ public class LoginController
         }
         else return "index";
     }
+
+    @GetMapping("/logout")
+    public String handleLogout(Model model)
+    {
+        userRepository.deleteAll();
+        model.addAttribute("localUser", new LocalUser());
+        return "redirect:/";
+    }
 }

@@ -17,8 +17,9 @@ public class SpringWebControllerTest
     @Autowired
     private MockMvc mockMvc;
 
-   /*@Test
-    public void shouldReturnIndex() throws Exception {
+    @Test
+    public void shouldReturnIndex() throws Exception
+    {
         this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk());
-    }*/
+    }
 }

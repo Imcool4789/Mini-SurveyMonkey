@@ -1,4 +1,9 @@
+AnswerTest\AnswerModelTest.class
+QuestionTest\QuestionMCTest.class
+AnswerTest\AnswerControllerTest.class
+QuestionTest\QuestionControllerTest.class
 com\group5\MiniSurveyMonkey\SpringWebControllerTest.class
+com\group5\MiniSurveyMonkey\UserControllerTest.class
+QuestionTest\QuestionModelTest.class
 com\group5\MiniSurveyMonkey\SurveyorControllerTest.class
 com\group5\MiniSurveyMonkey\MiniSurveyMonkeyApplicationTests.class
-com\group5\MiniSurveyMonkey\UserControllerTest.class

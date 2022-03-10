@@ -4,8 +4,10 @@ com\group5\MiniSurveyMonkey\SpringWebController.class
 Question\QuestionType.class
 com\group5\MiniSurveyMonkey\Login\UserController.class
 com\group5\MiniSurveyMonkey\Login\LocalUser.class
+Question\NumberRangeQuestion.class
 com\group5\MiniSurveyMonkey\Login\LoginController.class
 Answer\AnswerModel.class
+com\group5\MiniSurveyMonkey\Login\UserRepository.class
 Question\MCQuestion.class
 Question\QuestionModel.class
 com\group5\MiniSurveyMonkey\Login\SurveyorController.class

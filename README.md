@@ -1,11 +1,10 @@
-# Mini-Survey Monkey [Group 5]
+# Mini-Survey Monkey
 
 [![CircleCI](https://circleci.com/gh/Imcool4789/Mini-SurveyMonkey/tree/master.svg?style=svg)](https://circleci.com/gh/Imcool4789/Mini-SurveyMonkey/tree/master)
 
 [Heroku App Link](https://minisurveymonkey.herokuapp.com/)
 
 ## Group 5
-Group Members: 
 - John Warde 
 - Kashish Saxena
 - Vis Kirubakaran

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Getting Started: Handling Form Submission</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+<h1>Result</h1>
+<table style ="width:100%">
+  <caption th:text="'Questions for Survey ID: ' + ${surveyModel.id}"></caption>
+  <tr>
+    <th>id</th>
+    <th>Type</th>
+    <th>Name</th>
+  </tr>
+  <tr th:each="questionModel : ${surveyModel.surveyQuestions}">
+    <td th:text="${questionModel.id}"/>
+    <td th:text="${questionModel.type}"/>
+    <td th:text="${questionModel.name}"/>
+  </tr>
+</table>
+<p th:if="${localUser.accessType.equals('user')}">Return to index <a href="/userIndex">here</a></p>
+<p th:if="${localUser.accessType.equals('surveyor')}">Return to index <a href="/surveyorIndex">here</a></p>
+</body>
+</html>

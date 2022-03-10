@@ -25,8 +25,7 @@ table, th, td {
   </tr>
 </table>
 <div th:object="${localUser}">
-<p th:if="*{accessType.equals('user')}">Return to index <a href="/userIndex">here</a></p>
-<p th:if="*{accessType.equals('surveyor')}">Return to index <a href="/surveyorIndex">here</a></p>
+<p>Return to index <a href="/">here</a></p>
 </div>
 </body>
 </html>

@@ -10,14 +10,13 @@
 <body>
 <ul>
     <li><a href="/">Home</a></li>
-    <li><a href="/viewSurvey">View Survey</a></li>
 </ul>
-<div th:if='${localUser.getUser().equals("")}' id="loginSection">
+<div id="loginSection">
     <h2>Log In To Your Account</h2>
-    <form th:action="@{/}" th:object="${localUser}" method="post" modelAttribute="localUser">
-        <input type="text" id ="user" th:field="*{user}" placeholder="Username" required></br></br>
-        <input type="password" id ="password" th:field="*{password}" placeholder="Password" required></br></br>
-        <input type="submit" id ="login" value ="Login"></br>
+    <form action ="#" th:action="@{/}" th:object="${localUser}" method="post">
+        <input type="text" th:field="*{user}" placeholder="Username" required></br></br>
+        <input type="password" th:field="*{password}" placeholder="Password" required></br></br>
+        <input type="submit" value ="Login"></br>
     </form>
 </div>
 <footer>

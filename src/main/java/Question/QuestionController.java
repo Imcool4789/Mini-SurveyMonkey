@@ -8,11 +8,11 @@ import java.util.List;
 @RestController
 public class QuestionController {
 
+    @Autowired
     private QuestionRepository rep;
 
     public QuestionController (QuestionRepository rep){
         this.rep = rep;
-
     }
 
     @PostMapping(value = "addQuestion")
@@ -27,7 +27,7 @@ public class QuestionController {
         return "deleteQuestion";
     }
 
-    @GetMapping(value = "/question")
+    @GetMapping(value = "questions")
     public List<QuestionModel> getAll(){
         return (List<QuestionModel>) rep.findAll();
     }

@@ -1,7 +1,7 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-  <title>Getting Started: Handling Form Submission</title>
+  <title>Mini-Survey Monkey</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <style>
@@ -12,7 +12,7 @@ table, th, td {
 <body>
 <h1>Result</h1>
 <table style ="width:100%">
-  <caption th:text="'Questions for Survey ID: ' + ${surveyModel.id}"></caption>
+  <caption th:text="${surveyTitle}"></caption>
   <tr>
     <th>id</th>
     <th>Type</th>
@@ -24,6 +24,8 @@ table, th, td {
     <td th:text="${questionModel.name}"/>
   </tr>
 </table>
+<div th:object="${localUser}">
 <p>Return to index <a href="/">here</a></p>
+</div>
 </body>
 </html>

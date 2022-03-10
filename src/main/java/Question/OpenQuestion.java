@@ -20,11 +20,11 @@ public class OpenQuestion extends QuestionModel{
         return responses;
     }
 
-    private void setResponses(ArrayList<String> responses){
+    public void setResponses(ArrayList<String> responses){
         this.responses = responses;
     }
 
-    private void addResponse (String response){
+    public void addResponse (String response){
         responses.add(response);
     }
 

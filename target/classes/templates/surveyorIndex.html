@@ -9,10 +9,10 @@
 </head>
 <body>
 <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="#View">View Survey</a></li>
-    <li><a th:if="${localUser.getAccessType().equals('surveyor')}" href="#Create">Create a Survey</a></li>
-    <li><a href="/">Logout</a></li>
+    <li><a href="/surveyorIndex">Home</a></li>
+    <li><a href="/surveyorIndex/viewSurvey">View Survey</a></li>
+    <li><a href="/surveyorIndex">Create a Survey</a></li>
+    <li><a href="/logout">Logout</a></li>
 </ul>
 <footer>
     <p id="copyright">Copyright &copy; 2022 Mini-SurveyMonkey Group 5</p>

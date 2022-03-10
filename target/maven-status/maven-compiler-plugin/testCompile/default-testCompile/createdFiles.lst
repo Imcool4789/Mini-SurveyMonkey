@@ -1,2 +1,4 @@
-com\group5\MiniSurveyMonkey\MiniSurveyMonkeyApplicationTests.class
 com\group5\MiniSurveyMonkey\SpringWebControllerTest.class
+com\group5\MiniSurveyMonkey\SurveyorControllerTest.class
+com\group5\MiniSurveyMonkey\MiniSurveyMonkeyApplicationTests.class
+com\group5\MiniSurveyMonkey\UserControllerTest.class

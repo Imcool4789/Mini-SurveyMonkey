@@ -1,0 +1,16 @@
+Answer\AnswerController.class
+Answer\AnswerRepository.class
+com\group5\MiniSurveyMonkey\SpringWebController.class
+Question\QuestionType.class
+com\group5\MiniSurveyMonkey\Login\UserController.class
+com\group5\MiniSurveyMonkey\Login\LocalUser.class
+com\group5\MiniSurveyMonkey\Login\LoginController.class
+Answer\AnswerModel.class
+Question\MCQuestion.class
+Question\QuestionModel.class
+com\group5\MiniSurveyMonkey\Login\SurveyorController.class
+com\group5\MiniSurveyMonkey\MiniSurveyMonkeyApplication.class
+Question\QuestionController.class
+com\group5\MiniSurveyMonkey\Survey\SurveyModel.class
+com\group5\MiniSurveyMonkey\Survey\SurveyRepository.class
+Question\QuestionRepository.class

@@ -14,7 +14,10 @@
 	<name>Mini-SurveyMonkey</name>
 	<description>Survey Monkey Spring Boot Project</description>
 	<properties>
-		<java.version>11</java.version>
+		<start-class>com.group5.MiniSurveyMonkey.MiniSurveyMonkeyApplication</start-class>
+        	<java.version>1.8</java.version>
+        	<maven.compiler.source>1.8</maven.compiler.source>
+       		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>

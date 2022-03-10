@@ -51,11 +51,8 @@ public class UserControllerTest
                 .andDo(print()).andExpect(status().isOk());
     }
 
-    /*
-    TODO: Works when running via Application, but need to fix for mockMVC
-    Error on get ("/surveyorIndex/viewSurvey")
     @Test
-    public void viewSurvey() throws Exception
+    public void viewSurveyAsUser() throws Exception
     {
         this.mockMvc.perform(post("/")
                         .param("user", "user1")
@@ -64,5 +61,4 @@ public class UserControllerTest
         this.mockMvc.perform(get("/userIndex/viewSurvey"))
                 .andDo(print()).andExpect(status().isOk());
     }
-    */
 }

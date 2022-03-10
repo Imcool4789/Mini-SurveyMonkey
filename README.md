@@ -10,7 +10,7 @@ Group Members:
 - Kashish Saxena
 - Vis Kirubakaran
 
-## Milestone 1 - March 11, 20222
+## Milestone 1 - March 11, 2022
 - [x] CircleCI and Heroku Integration
 - [x] Database Integration (H2)
 - [x] Kanban Board Setup with 'backlog', 'in progress', 'completed' columns

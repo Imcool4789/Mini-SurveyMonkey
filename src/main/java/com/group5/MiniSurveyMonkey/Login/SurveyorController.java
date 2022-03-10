@@ -5,9 +5,7 @@ import com.group5.MiniSurveyMonkey.Survey.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Iterator;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class SurveyorController
@@ -21,14 +19,7 @@ public class SurveyorController
     @GetMapping("/surveyorIndex")
     public String localLogin(Model model)
     {
-        if (!userRepository.findAll().iterator().hasNext())
-        {
-            LocalUser user = new LocalUser("surveyor", "surveyor");
-            userRepository.save(user);
-        }
-        Iterator<LocalUser> iterUser = userRepository.findAll().iterator();
-        LocalUser user = iterUser.next();
-
+        LocalUser user = userRepository.findById(1);
         model.addAttribute("localUser", user);
         return "surveyorIndex";
     }
@@ -36,8 +27,9 @@ public class SurveyorController
     @GetMapping("/surveyorIndex/create")
     public String createSurvey(Model model)
     {
-        LocalUser user = userRepository.findAll().iterator().next();
+        LocalUser user = userRepository.findById(1);
         SurveyModel surveyModel = new SurveyModel();
+        surveyRepository.deleteAll();
         surveyRepository.save(surveyModel);
 
         model.addAttribute("localUser", user);
@@ -48,15 +40,16 @@ public class SurveyorController
     @GetMapping("/surveyorIndex/viewSurvey")
     public String viewSurvey(Model model)
     {
-        LocalUser user = userRepository.findAll().iterator().next();
-
-        if (!surveyRepository.findAll().iterator().hasNext())
+        LocalUser user = userRepository.findById(1);
+        SurveyModel surveyModel = new SurveyModel(); // need createSurvey page
+        if (surveyModel == null)
         {
-            SurveyModel surveyModel = new SurveyModel();
+            surveyModel = new SurveyModel();
             surveyRepository.save(surveyModel);
         }
-        SurveyModel surveyModel = surveyRepository.findAll().iterator().next();
+        String surveyTitle = surveyModel.getName() + "[id =" + surveyModel.getId() + "]";
 
+        model.addAttribute("surveyTitle", surveyTitle);
         model.addAttribute("localUser", user);
         model.addAttribute("surveyModel", surveyModel);
         return "viewSurvey";

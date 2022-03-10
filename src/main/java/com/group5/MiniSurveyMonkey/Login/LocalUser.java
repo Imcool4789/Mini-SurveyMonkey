@@ -8,8 +8,7 @@ import java.util.ArrayList;
 public class LocalUser
 {
     @Id
-    private int id;
-
+    private long id;
     private String user;
     private String password;
     private String accessType;
@@ -19,9 +18,9 @@ public class LocalUser
 
     public LocalUser()
     {
-        this.id = 1;
-        this.user = "";
-        this.password = "";
+        id = 1;
+        user = "";
+        password = "";
         validUsers = new ArrayList<>();
         validPasswords = new ArrayList<>();
         setValid();
@@ -29,7 +28,7 @@ public class LocalUser
 
     public LocalUser(String user, String password)
     {
-        this.id = 1;
+        id = 1;
         this.user = user;
         this.password = password;
         validUsers = new ArrayList<>();
@@ -50,14 +49,28 @@ public class LocalUser
     {
         if (validUsers.contains(user) && validPasswords.contains(password))
         {
-            if ((user.equals("surveyor") && password.equals("surveyor")) || (user.equals("user1") || user.equals("user2")) && password.equals("password"))
+            if ((user.equals("surveyor") && password.equals("surveyor")) || ((user.equals("user1") || user.equals("user2")) && password.equals("password")))
             {
-                if (user.equals("surveyor")) accessType = "surveyor";
-                else accessType = "user";
+                if (user.equals("surveyor"))
+                {
+                    accessType = "surveyor";
+                }
+                else
+                {
+                    accessType = "user";
+                }
                 return true;
             }
         }
         return false;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getUser() {
@@ -80,4 +93,15 @@ public class LocalUser
         return accessType;
     }
 
+    @Override
+    public String toString() {
+        return "LocalUser{" +
+                "id=" + id +
+                ", user='" + user + '\'' +
+                ", password='" + password + '\'' +
+                ", accessType='" + accessType + '\'' +
+                ", validUsers=" + validUsers +
+                ", validPasswords=" + validPasswords +
+                '}';
+    }
 }

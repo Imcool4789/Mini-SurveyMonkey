@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 public interface SurveyRepository extends CrudRepository<SurveyModel, Long> {
 
     SurveyModel findById (long id);
+    SurveyModel findByName (String name);
 }

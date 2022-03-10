@@ -26,6 +26,7 @@ public class SurveyModel
         this.responseCount = 0;
         surveyQuestions = new ArrayList<>();
     }
+
     public SurveyModel(String name)
     {
         this.id = 1;
@@ -59,16 +60,34 @@ public class SurveyModel
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getResponseCount() {
+        return responseCount;
+    }
+
+    public void setResponseCount(int responseCount) {
+        this.responseCount = responseCount;
+    }
+
     public ArrayList<QuestionModel> getSurveyQuestions() {
         return surveyQuestions;
     }
 
     @Override
     public String toString() {
-        return "Survey{" +
-                "id=" + id +
+        return "SurveyModel{" +
+                "counter=" + counter +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", responseCount=" + responseCount +
                 ", surveyQuestions=" + surveyQuestions +
                 '}';
     }
-
 }

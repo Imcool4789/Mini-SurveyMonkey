@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends CrudRepository<LocalUser, Long> {
     LocalUser findById (long id);
+    LocalUser findByUser(String user);
+    LocalUser findByAccessType(String accessType);
 }

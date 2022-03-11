@@ -28,10 +28,10 @@ This repository contains the initial Mini-SurveyMonkey Spring Boot application w
 ## Diagrams
 
 ### DB Diagram
-![image](https://user-images.githubusercontent.com/56265739/157777809-2f77ed04-221b-48e3-a4ec-d28e71e12a33.png)
+![image](https://github.com/Imcool4789/Mini-SurveyMonkey/blob/master/diagrams/Group5_DB_Diagram_John_Warde.png)
 
 ### UML Class Diagram
-![image](https://user-images.githubusercontent.com/72267229/157780209-833dd889-e52d-4f30-b922-8709994ea3da.png)
+![image](https://github.com/Imcool4789/Mini-SurveyMonkey/blob/master/diagrams/Group5_Class_UML_Vis_Kirubakaran.png)
 
 ## Plans for Next Milestone
 Milestone 2 - March 25, 2022

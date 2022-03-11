@@ -16,7 +16,7 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 - [x] CircleCI and Heroku Integration
 - [x] Database Integration (H2)
 - [x] Kanban Board Setup with 'backlog', 'in progress', 'completed' columns
-- [ ] GitHub Issues for Weekly Scrum
+- [x] GitHub Issues for Weekly Scrum
 - [x] Code Reviews on pull requests to master prior to commit
 - [x] Spring Boot Application code functional and deployable via jar on Heroku
 - [x] Model Setup Done (Survey, Question, Answer, User)
@@ -43,18 +43,22 @@ Milestone 2 - March 25, 2022
 - [ ] Refactor Answer Model into different types (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
 - [ ] Implement capability to add answers into survey questions - John
 - [ ] Intgerate MongoDB - John
+- [ ] Storing user and accessing user info via DB - Vis
+- [ ] Storing questions and access via DB - Kashish
+- [ ] Storing answers and access via DB - John
 - [ ] Create DB tests - John
 - [ ] Create Results page - Vis
 - [ ] Creating multiple questions within same page - Vis
 - [ ] Update Diagrams with progress 
 - [ ] Create remove question functionality - Kashish
 - [ ] Navigating through survey in user POV - John
-- [ ] Implement Tests for Answer creation within survey
-- [ ] Adding and Removing Questions from survey tests
+- [ ] Implement Tests for Answer creation within survey - John
+- [ ] Adding and Removing Questions from survey tests - Kashish
 - [ ] Implement Answer Model tests (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
 - [ ] Ability to close survey and return results - Kashish
-- [ ] Update Kanban board
-- [ ] Create weekly issues for scrums
+- [ ] Update README
+- [ ] Update Kanban board - Everyone
+- [ ] Create weekly issues for scrums - Everyone
 
 ## Setup & Testing Instructions
 1.  `git clone` this repository to your local machine

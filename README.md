@@ -35,11 +35,12 @@ This repository contains the initial Mini-SurveyMonkey Spring Boot application w
 
 ## Plans for Next Milestone
 Milestone 2 - March 25, 2022
-- [] Refactor Answer Model into different types
-- [] Implement capability to add answers into survey questions
-- [] Intgerate MongoDb
-- [] Create DB tests
-- [] Create results page
-- [] Update Diagrams with progress
-- [] Create remove question functionality
+- [ ] Refactor Answer Model into different types
+- [ ] Implement capability to add answers into survey questions
+- [ ] Intgerate MongoDb
+- [ ] Create DB tests
+- [ ] Create results page
+- [ ] Update Diagrams with progress
+- [ ] Create remove question functionality
+
 ## Setup & Testing Instructions

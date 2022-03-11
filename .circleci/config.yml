@@ -28,12 +28,7 @@ jobs:
     steps:
       - store_test_results:
           path: test-results
-      
-      #- persist_to_workspace:
-       #   root:  ~/project/.
-        #  paths: target/*
-
-
+          
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:

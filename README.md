@@ -35,13 +35,18 @@ This repository contains the initial Mini-SurveyMonkey Spring Boot application w
 
 ## Plans for Next Milestone
 Milestone 2 - March 25, 2022
-- [ ] Refactor Answer Model into different types
+- [ ] Refactor Answer Model into different types (MCAnswer, NumberRangeAnswer, OpenAnswer)
 - [ ] Implement capability to add answers into survey questions
-- [ ] Intgerate MongoDb
+- [ ] Intgerate MongoDB
 - [ ] Create DB tests
-- [ ] Create results page
+- [ ] Create Results page
+- [ ] Creating multiple questions within same page
 - [ ] Update Diagrams with progress
 - [ ] Create remove question functionality
 - [ ] Navigating through survey in user POV
 
 ## Setup & Testing Instructions
+1.  'git clone' this repository to your local machine
+2.  Open IntelliJ, run the following lifecycle with Maven: 'clean' followed by 'package'
+3.  To run the application, right click the 'Mini-SurveyMonkey-0.0.1-SNAPSHOT.jar' which is located in 'target/' and select 'Run'
+4.  To run all the tests, run the following lifecycle with Maven: 'test'

@@ -20,7 +20,15 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-
+  processResults:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - store_test_results:
+          path: test-results
+          
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
@@ -28,5 +36,6 @@ workflows:
     jobs:
       - say-hello
   maven_test:
-      jobs:
+    jobs:
         - maven/test
+        - processResults

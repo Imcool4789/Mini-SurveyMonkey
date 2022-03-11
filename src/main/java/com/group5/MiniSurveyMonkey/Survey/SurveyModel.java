@@ -2,6 +2,7 @@ package com.group5.MiniSurveyMonkey.Survey;
 
 import com.group5.MiniSurveyMonkey.Question.QuestionModel;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class SurveyModel
     private long id;
     private String name;
     private int responseCount;
-
+    @Column(length = 10000000)
     private ArrayList<QuestionModel> surveyQuestions;
 
     public SurveyModel()

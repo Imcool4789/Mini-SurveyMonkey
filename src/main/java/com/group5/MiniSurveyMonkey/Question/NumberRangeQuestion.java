@@ -1,10 +1,17 @@
 package com.group5.MiniSurveyMonkey.Question;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class NumberRangeQuestion extends QuestionModel
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     private int min;
     private int max;
     private int num;

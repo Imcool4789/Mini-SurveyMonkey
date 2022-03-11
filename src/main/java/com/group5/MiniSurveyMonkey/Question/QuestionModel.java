@@ -1,25 +1,29 @@
 package com.group5.MiniSurveyMonkey.Question;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class QuestionModel {
+public class QuestionModel implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String type;
     private String name;
 
-    public QuestionModel(){}
-
-    public QuestionModel(long id, String type, String name) {
-        this.id = id;
-        this.type = type;
-        this.name = name;
+    public QuestionModel()
+    {
+        id = 1;
     }
 
-    public QuestionModel(String type, String name){
+    public QuestionModel(String type, String name)
+    {
+        id = 1;
         this.type = type;
+        this.name = name;
     }
 
     public long getId() {
@@ -51,6 +55,7 @@ public class QuestionModel {
         return "QuestionModel{" +
                 "id=" + id +
                 ", type='" + type + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

@@ -1,15 +1,15 @@
 package com.group5.MiniSurveyMonkey.Answer;
 
 import com.group5.MiniSurveyMonkey.Question.QuestionModel;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class AnswerModel {
+public class AnswerModel implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String answer;
 
@@ -17,7 +17,7 @@ public class AnswerModel {
     private QuestionModel q;
 
     public AnswerModel(){
-
+        this.id = 1;
     }
 
     public AnswerModel(Long id,String answer) {

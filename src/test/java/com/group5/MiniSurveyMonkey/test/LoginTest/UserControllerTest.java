@@ -1,4 +1,4 @@
-package com.group5.MiniSurveyMonkey.LoginTest;
+package com.group5.MiniSurveyMonkey.test.LoginTest;
 
 import com.group5.MiniSurveyMonkey.Login.LoginController;
 import com.group5.MiniSurveyMonkey.Login.UserController;

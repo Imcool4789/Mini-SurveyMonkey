@@ -28,13 +28,13 @@ public class UserController
     public String viewSurvey(Model model)
     {
         LocalUser user = userRepository.findById(1);
-        SurveyModel surveyModel = new SurveyModel(); // need createSurvey page
+        SurveyModel surveyModel = surveyRepository.findById(1);
         if (surveyModel == null)
         {
             surveyModel = new SurveyModel();
             surveyRepository.save(surveyModel);
         }
-        String surveyTitle = surveyModel.getName() + "[id =" + surveyModel.getId() + "]";
+        String surveyTitle = "Questions for " + surveyModel.getName() + "[id =" + surveyModel.getId() + "]";
 
         model.addAttribute("surveyTitle", surveyTitle);
         model.addAttribute("localUser", user);

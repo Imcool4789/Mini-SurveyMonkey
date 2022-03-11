@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Mini-Survey Monkey</title>
+    <link rel="stylesheet" th:href="@{./reset.css}" />
+    <link rel="stylesheet" th:href="@{./style.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<ul>
+    <li><a href="/">Home</a></li>
+</ul>
+<div id="questionCreation">
+    <h2>Adding Question to Survey</h2>
+    <form action ="#" th:action="@{/surveyorIndex/createQuestion}" th:object="${question}" method="post">
+        <label for="name">Enter the question name:</label>
+        <input type="text" th:field="*{name}" id="name"></br></br>
+        <label for="name">Select the question type:</label>
+        <select th:field="*{type}">
+            <option value="MC">Multiple Choice Question</option>
+            <option value="OPEN">Open Ended Question</option>
+            <option value="RANGE">Number Range Question</option>
+        </select></br></br>
+        <input type="submit" value ="Submit"></br>
+    </form>
+</div>
+<footer>
+    <p id="copyright">Copyright &copy; 2022 Mini-SurveyMonkey Group 5</p>
+</footer>
+</body>
+</html>

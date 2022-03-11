@@ -1,4 +1,4 @@
-package com.group5.MiniSurveyMonkey.QuestionTest;
+package com.group5.MiniSurveyMonkey.test.QuestionTest;
 
 
 import com.group5.MiniSurveyMonkey.Question.QuestionModel;
@@ -34,7 +34,7 @@ public class QuestionModelTest {
 
     @Test
     public void TestConstructor(){
-        q = new QuestionModel(1, QuestionType.MC,"Q1");
+        q = new QuestionModel(QuestionType.MC,"Q1");
         assertEquals(q.getId(),1);
         assertEquals(q.getType(),"Multiple Choice");
         assertEquals(q.getName(),"Q1");

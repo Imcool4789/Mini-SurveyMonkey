@@ -4,6 +4,8 @@
 
 This repository contains the initial Mini-SurveyMonkey Spring Boot application which will allow a surveyor to create a survey with a list of questions that can be of varying types (multiple choice, open ended, or numbers within a range) and at any point in time, the surveyor will be able to close the survey and obtain the responses. The users will be able to view and fill out the survey created by the surveyor and allow their responses to be saved and upon successful submission, the survey will output the result either as simple text, histogram, or pie chart depending on the type of question asked in the survey. 
 
+The repository is sorted into various packages such as `Login`, `Survey`, `Question`, `Answer` and these packages group together classes relevant to the specific package name. E.x. `Login` will contain model, repository and controller classes relevant to the act of logging into the app.
+
 ## Authors
 
 - John Warde 
@@ -19,11 +21,14 @@ This repository contains the initial Mini-SurveyMonkey Spring Boot application w
 - [x] Spring Boot Application code functional and deployable via jar on Heroku
 - [x] Model Setup Done (Survey, Question, Answer, User)
 - [x] Tests for Controllers, Application, Database and Models
-- [x] Diagrams (UML Class, ER, Database)
-- [x] Ability to login as either surveyor or user 
-- [x] Ability to navigate through app with respective permissions. User can only view survey, Surveyor can view and create survey
-- [x] Ability to create survey
-- [x] Ability to add questions to a survey
+- [x] Diagrams (UML Class and ER)
+- [x] Handles 2 form submissions (logging in and survey question creation) with valid mappings and views as outputs 
+- [x] Ability to login as either surveyor or user  
+- [x] Ability to logout when logged in as either surveyor or user
+- [x] Ability to navigate through app with respective permissions. User can only view survey, Surveyor can view and create survey questions
+- [x] Ability to add all 3 types of questions to a survey with a name 
+- [x] Ability to add questions to a survey and view the updated list of questions in the survey
+- [x] Ability to view most relevant redirects as viewable html pages with data presented visually instead of passing around JSON and display JSON objects  
 
 ## Diagrams
 
@@ -40,7 +45,7 @@ Milestone 2 - March 25, 2022
 - [ ] Intgerate MongoDB - John
 - [ ] Create DB tests - John
 - [ ] Create Results page - Vis
-- [ ] Creating multiple questions within same page 
+- [ ] Creating multiple questions within same page - Vis
 - [ ] Update Diagrams with progress 
 - [ ] Create remove question functionality - Kashish
 - [ ] Navigating through survey in user POV - John
@@ -49,7 +54,7 @@ Milestone 2 - March 25, 2022
 - [ ] Implement Answer Model tests (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
 - [ ] Ability to close survey and return results - Kashish
 - [ ] Update Kanban board
-- [ ] Create weekly issues
+- [ ] Create weekly issues for scrums
 
 ## Setup & Testing Instructions
 1.  `git clone` this repository to your local machine

@@ -1,4 +1,4 @@
-package com.group5.MiniSurveyMonkey.AnswerTest;
+package com.group5.MiniSurveyMonkey.test.AnswerTest;
 
 import com.group5.MiniSurveyMonkey.Answer.AnswerModel;
 import com.group5.MiniSurveyMonkey.Question.QuestionModel;

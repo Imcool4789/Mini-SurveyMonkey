@@ -1,12 +1,15 @@
 package com.group5.MiniSurveyMonkey.Question;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class OpenQuestion extends QuestionModel{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     @ElementCollection
     private List<String> responses;

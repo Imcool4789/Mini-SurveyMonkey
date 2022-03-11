@@ -1,11 +1,11 @@
 package com.group5.MiniSurveyMonkey.Answer;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class AnswerController {
 
     private AnswerRepository rep;

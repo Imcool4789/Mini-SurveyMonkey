@@ -23,20 +23,7 @@ public class SurveyorController
         model.addAttribute("localUser", user);
         return "surveyorIndex";
     }
-
-    @GetMapping("/surveyorIndex/create")
-    public String createSurvey(Model model)
-    {
-        LocalUser user = userRepository.findById(1);
-        SurveyModel surveyModel = new SurveyModel();
-        surveyRepository.deleteAll();
-        surveyRepository.save(surveyModel);
-
-        model.addAttribute("localUser", user);
-        model.addAttribute("surveyModel", surveyModel);
-        return "surveyorIndex";
-    }
-
+    
     @GetMapping("/surveyorIndex/viewSurvey")
     public String viewSurvey(Model model)
     {

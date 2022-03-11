@@ -1,4 +1,4 @@
-package Question;
+package com.group5.MiniSurveyMonkey.Question;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

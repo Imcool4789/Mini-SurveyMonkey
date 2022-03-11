@@ -1,8 +1,8 @@
 package AnswerTest;
 
-import Answer.AnswerModel;
-import Question.QuestionModel;
-import Question.QuestionType;
+import com.group5.MiniSurveyMonkey.Answer.AnswerModel;
+import com.group5.MiniSurveyMonkey.Question.QuestionModel;
+import com.group5.MiniSurveyMonkey.Question.QuestionType;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

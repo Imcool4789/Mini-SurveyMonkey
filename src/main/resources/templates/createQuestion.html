@@ -12,15 +12,15 @@
     <li><a href="/">Home</a></li>
 </ul>
 <div id="questionCreation">
-    <h2>Adding Question to Survey</h2>
+    <h2>Adding com.group5.MiniSurveyMonkey.Question to Survey</h2>
     <form action ="#" th:action="@{/surveyorIndex/createQuestion}" th:object="${question}" method="post">
         <label for="name">Enter the question name:</label>
-        <input type="text" th:field="*{name}" id="name"></br></br>
+        <input type="text" th:field="*{name}" id="name"> </br></br>
         <label for="name">Select the question type:</label>
         <select th:field="*{type}">
-            <option value="MC">Multiple Choice Question</option>
-            <option value="OPEN">Open Ended Question</option>
-            <option value="RANGE">Number Range Question</option>
+            <option value="MC">Multiple Choice com.group5.MiniSurveyMonkey.Question</option>
+            <option value="OPEN">Open Ended com.group5.MiniSurveyMonkey.Question</option>
+            <option value="RANGE">Number Range com.group5.MiniSurveyMonkey.Question</option>
         </select></br></br>
         <input type="submit" value ="Submit"></br>
     </form>

@@ -1,6 +1,6 @@
 package QuestionTest;
 
-import Question.MCQuestion;
+import com.group5.MiniSurveyMonkey.Question.MCQuestion;
 import org.junit.Test;
 
 import java.util.ArrayList;

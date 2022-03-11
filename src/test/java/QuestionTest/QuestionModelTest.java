@@ -1,7 +1,7 @@
 package QuestionTest;
 
-import Question.QuestionModel;
-import Question.QuestionType;
+import com.group5.MiniSurveyMonkey.Question.QuestionModel;
+import com.group5.MiniSurveyMonkey.Question.QuestionType;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,8 +26,8 @@ public class QuestionModelTest {
     @Test
     public void TestName(){
         q = new QuestionModel();
-        q.setName("Question 1");
-        assertEquals(q.getName(),"Question 1");
+        q.setName("com.group5.MiniSurveyMonkey.Question 1");
+        assertEquals(q.getName(),"com.group5.MiniSurveyMonkey.Question 1");
     }
 
     @Test

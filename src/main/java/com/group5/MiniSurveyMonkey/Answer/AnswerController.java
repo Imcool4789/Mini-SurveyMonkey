@@ -1,4 +1,4 @@
-package Answer;
+package com.group5.MiniSurveyMonkey.Answer;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

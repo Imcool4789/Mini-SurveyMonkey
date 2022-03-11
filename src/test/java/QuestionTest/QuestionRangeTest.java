@@ -1,12 +1,7 @@
 package QuestionTest;
 
-import Question.MCQuestion;
-import Question.NumberRangeQuestion;
-import Question.OpenQuestion;
+import com.group5.MiniSurveyMonkey.Question.NumberRangeQuestion;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 

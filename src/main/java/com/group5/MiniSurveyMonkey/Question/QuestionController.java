@@ -1,29 +1,30 @@
-package Question;
+package com.group5.MiniSurveyMonkey.Question;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class QuestionController {
 
     private QuestionRepository rep;
 
     public QuestionController (QuestionRepository rep){
         this.rep = rep;
-
     }
 
     @PostMapping("/surveyorIndex/createQuestion")
     public String addQuestion(Model model, @ModelAttribute("question") QuestionModel q) {
-        model.addAttribute("Question", q);
+        model.addAttribute("question", new QuestionModel());
         rep.save(q);
         return "viewSurvey";
     }
 
     @GetMapping("/surveyorIndex/createQuestion")
     public String showQuestionForm(Model model){
+        model.addAttribute("question", new QuestionModel());
         return "createQuestion";
     }
 

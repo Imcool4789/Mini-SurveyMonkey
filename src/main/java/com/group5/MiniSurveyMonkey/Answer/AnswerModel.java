@@ -1,7 +1,6 @@
-package Answer;
+package com.group5.MiniSurveyMonkey.Answer;
 
-import Question.QuestionModel;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.group5.MiniSurveyMonkey.Question.QuestionModel;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

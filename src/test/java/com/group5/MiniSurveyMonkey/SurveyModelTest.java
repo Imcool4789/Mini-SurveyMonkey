@@ -1,7 +1,7 @@
 package com.group5.MiniSurveyMonkey;
 
-import Question.MCQuestion;
-import Question.NumberRangeQuestion;
+import com.group5.MiniSurveyMonkey.Question.MCQuestion;
+import com.group5.MiniSurveyMonkey.Question.NumberRangeQuestion;
 import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;

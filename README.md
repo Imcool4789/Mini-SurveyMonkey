@@ -17,7 +17,7 @@ This repository contains the initial Mini-SurveyMonkey Spring Boot application w
 - [ ] GitHub Issues for Weekly Scrum
 - [x] Code Reviews on pull requests to master prior to commit
 - [x] Spring Boot Application code functional and deployable via jar on Heroku
-- [x] Model Setup Done (Survey, Question, Answer, User)
+- [x] Model Setup Done (Survey, com.group5.MiniSurveyMonkey.Question, com.group5.MiniSurveyMonkey.Answer, User)
 - [x] Tests for Controllers, Application, Database and Models
 - [x] Diagrams (UML Class, ER, Database)
 - [x] Ability to login as either surveyor or user 
@@ -35,7 +35,7 @@ This repository contains the initial Mini-SurveyMonkey Spring Boot application w
 
 ## Plans for Next Milestone
 Milestone 2 - March 25, 2022
-- [ ] Refactor Answer Model into different types
+- [ ] Refactor com.group5.MiniSurveyMonkey.Answer Model into different types
 - [ ] Implement capability to add answers into survey questions
 - [ ] Intgerate MongoDb
 - [ ] Create DB tests

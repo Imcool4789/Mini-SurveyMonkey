@@ -1,7 +1,7 @@
 package AnswerTest;
 
-import Answer.AnswerController;
-import Answer.AnswerRepository;
+import com.group5.MiniSurveyMonkey.Answer.AnswerController;
+import com.group5.MiniSurveyMonkey.Answer.AnswerRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

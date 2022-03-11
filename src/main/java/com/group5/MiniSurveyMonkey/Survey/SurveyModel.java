@@ -1,6 +1,6 @@
 package com.group5.MiniSurveyMonkey.Survey;
 
-import Question.QuestionModel;
+import com.group5.MiniSurveyMonkey.Question.QuestionModel;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -1,7 +1,7 @@
 package QuestionTest;
 
-import Question.QuestionController;
-import Question.QuestionRepository;
+import com.group5.MiniSurveyMonkey.Question.QuestionController;
+import com.group5.MiniSurveyMonkey.Question.QuestionRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

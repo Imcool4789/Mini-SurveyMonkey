@@ -38,8 +38,7 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 ### UML Class Diagram
 ![image](https://github.com/Imcool4789/Mini-SurveyMonkey/blob/master/diagrams/Group5_Class_UML_Vis_Kirubakaran.png)
 
-## Plans for Next Milestone
-Milestone 2 - March 25, 2022
+## Plans for Milestone 2 - March 25, 2022
 - [ ] Refactor Answer Model into different types (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
 - [ ] Implement capability to add answers into survey questions - John
 - [ ] Intgerate MongoDB - John

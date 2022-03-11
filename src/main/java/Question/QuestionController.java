@@ -22,6 +22,11 @@ public class QuestionController {
         return "viewSurvey";
     }
 
+    @GetMapping("/surveyorIndex/createQuestion")
+    public String showQuestionForm(Model model){
+        return "createQuestion";
+    }
+
     @PostMapping(value = "deleteQuestion")
     public String deleteQuestion(@RequestParam("id") long id) {
         rep.deleteById(id);

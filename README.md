@@ -24,5 +24,10 @@
 - [x] Ability to create survey
 - [ ] Ability to add and remove questions to a survey
 
+## Diagrams
+DB Diagram
+![image](https://user-images.githubusercontent.com/56265739/157777809-2f77ed04-221b-48e3-a4ec-d28e71e12a33.png)
+
+
 ## Plans for Next Milestone
 ## Setup & Testing Instructions

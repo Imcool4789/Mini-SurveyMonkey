@@ -42,5 +42,6 @@ Milestone 2 - March 25, 2022
 - [ ] Create results page
 - [ ] Update Diagrams with progress
 - [ ] Create remove question functionality
+- [ ] Navigating through survey in user POV
 
 ## Setup & Testing Instructions

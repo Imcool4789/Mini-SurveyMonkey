@@ -35,15 +35,21 @@ This repository contains the initial Mini-SurveyMonkey Spring Boot application w
 
 ## Plans for Next Milestone
 Milestone 2 - March 25, 2022
-- [ ] Refactor Answer Model into different types (MCAnswer, NumberRangeAnswer, OpenAnswer)
-- [ ] Implement capability to add answers into survey questions
-- [ ] Intgerate MongoDB
-- [ ] Create DB tests
-- [ ] Create Results page
-- [ ] Creating multiple questions within same page
-- [ ] Update Diagrams with progress
-- [ ] Create remove question functionality
-- [ ] Navigating through survey in user POV
+- [ ] Refactor Answer Model into different types (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
+- [ ] Implement capability to add answers into survey questions - John
+- [ ] Intgerate MongoDB - John
+- [ ] Create DB tests - John
+- [ ] Create Results page - Vis
+- [ ] Creating multiple questions within same page 
+- [ ] Update Diagrams with progress 
+- [ ] Create remove question functionality - Kashish
+- [ ] Navigating through survey in user POV - John
+- [ ] Implement Tests for Answer creation within survey
+- [ ] Adding and Removing Questions from survey tests
+- [ ] Implement Answer Model tests (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
+- [ ] Ability to close survey and return results - Kashish
+- [ ] Update Kanban board
+- [ ] Create weekly issues
 
 ## Setup & Testing Instructions
 1.  'git clone' this repository to your local machine

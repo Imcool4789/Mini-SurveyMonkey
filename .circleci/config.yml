@@ -29,7 +29,7 @@ jobs:
       - store_test_results:
           path: test-results
       - persist_to_workspace:
-          root: Mini-SurveyMonkey/
+          root: /
           paths: target/*
 
 

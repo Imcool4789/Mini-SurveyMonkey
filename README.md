@@ -19,11 +19,11 @@ This repository contains the initial Mini-SurveyMonkey Spring Boot application w
 - [x] Spring Boot Application code functional and deployable via jar on Heroku
 - [x] Model Setup Done (Survey, Question, Answer, User)
 - [x] Tests for Controllers, Application, Database and Models
-- [ ] Diagrams (UML Class, ER, Database)
+- [x] Diagrams (UML Class, ER, Database)
 - [x] Ability to login as either surveyor or user 
 - [x] Ability to navigate through app with respective permissions. User can only view survey, Surveyor can view and create survey
 - [x] Ability to create survey
-- [ ] Ability to add and remove questions to a survey
+- [x] Ability to add questions to a survey
 
 ## Diagrams
 

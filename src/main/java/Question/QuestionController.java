@@ -1,6 +1,6 @@
 package Question;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,10 +15,11 @@ public class QuestionController {
 
     }
 
-    @PostMapping(value = "addQuestion")
-    public String addQuestion(@RequestBody QuestionModel q) {
+    @PostMapping("/surveyorIndex/createQuestion")
+    public String addQuestion(Model model, @ModelAttribute("question") QuestionModel q) {
+        model.addAttribute("Question", q);
         rep.save(q);
-        return "addQuestion";
+        return "viewSurvey";
     }
 
     @PostMapping(value = "deleteQuestion")

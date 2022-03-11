@@ -1,10 +1,11 @@
-# Mini-Survey Monkey
-
-[![CircleCI](https://circleci.com/gh/Imcool4789/Mini-SurveyMonkey/tree/master.svg?style=svg)](https://circleci.com/gh/Imcool4789/Mini-SurveyMonkey/tree/master)
+# Mini-Survey Monkey [Group 5] [![CircleCI](https://circleci.com/gh/Imcool4789/Mini-SurveyMonkey/tree/master.svg?style=svg)](https://circleci.com/gh/Imcool4789/Mini-SurveyMonkey/tree/master)
 
 [Heroku App Link](https://minisurveymonkey.herokuapp.com/)
 
-## Group 5
+This repository contains the initial Mini-SurveyMonkey Spring Boot application which will allow a surveyor to create a survey with a list of questions that can be of varying types (multiple choice, open ended, or numbers within a range) and at any point in time, the surveyor will be able to close the survey and obtain the responses. The users will be able to view and fill out the survey created by the surveyor and allow their responses to be saved and upon successful submission, the survey will output the result either as simple text, histogram, or pie chart depending on the type of question asked in the survey. 
+
+## Authors
+
 - John Warde 
 - Kashish Saxena
 - Vis Kirubakaran
@@ -15,8 +16,8 @@
 - [x] Kanban Board Setup with 'backlog', 'in progress', 'completed' columns
 - [ ] GitHub Issues for Weekly Scrum
 - [x] Code Reviews on pull requests to master prior to commit
-- [x] SpringBoot Application code functional and deployable via jar on Heroku
-- [x] Model Setup Done (survey, Question, Answer, User)
+- [x] Spring Boot Application code functional and deployable via jar on Heroku
+- [x] Model Setup Done (Survey, Question, Answer, User)
 - [x] Tests for Controllers, Application, Database and Models
 - [ ] Diagrams (UML Class, ER, Database)
 - [x] Ability to login as either surveyor or user 
@@ -25,9 +26,12 @@
 - [ ] Ability to add and remove questions to a survey
 
 ## Diagrams
-DB Diagram
+
+### DB Diagram
 ![image](https://user-images.githubusercontent.com/56265739/157777809-2f77ed04-221b-48e3-a4ec-d28e71e12a33.png)
 
+### UML Class Diagram
+![image](https://user-images.githubusercontent.com/72267229/157780209-833dd889-e52d-4f30-b922-8709994ea3da.png)
 
 ## Plans for Next Milestone
 ## Setup & Testing Instructions

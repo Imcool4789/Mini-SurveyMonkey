@@ -12,6 +12,28 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 - Kashish Saxena
 - Vis Kirubakaran
 
+## Milestone 2 - March 25, 2022
+- [ ] Refactor Answer Model into different types (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
+- [ ] Implement capability to add answers into survey questions - John
+- [ ] Intgerate MongoDB - John
+- [ ] Storing user and accessing user info via DB - Vis
+- [ ] Storing questions and accessing via DB - Kashish
+- [ ] Storing answers and accessing via DB - John
+- [ ] Create DB tests - John
+- [ ] Create Results page - Vis
+- [ ] Creating multiple questions within same page - Vis
+- [ ] Update Diagrams with progress (ORM ER Model - Kashish, UML Class Diagram - Vis)
+- [ ] Create remove question functionality - Kashish
+- [ ] Navigating through survey in user POV - John
+- [ ] Implement Tests for Answer creation within survey - John
+- [ ] Adding and Removing Questions from survey tests - Kashish
+- [ ] Revise QuestionModel & AnswerModel interaction for proper inheritance - Everyone
+- [ ] Implement Answer Model tests (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
+- [ ] Ability to close survey and return results - Kashish
+- [ ] Update README - Anyone
+- [ ] Update Kanban board - Everyone
+- [ ] Create weekly issues for scrums - Everyone
+
 ## Milestone 1 - March 11, 2022
 - [x] CircleCI and Heroku Integration
 - [x] Database Integration (H2)
@@ -37,27 +59,6 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 
 ### UML Class Diagram
 ![image](https://github.com/Imcool4789/Mini-SurveyMonkey/blob/master/diagrams/Group5_Class_UML_Vis_Kirubakaran.png)
-
-## Plans for Milestone 2 - March 25, 2022
-- [ ] Refactor Answer Model into different types (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
-- [ ] Implement capability to add answers into survey questions - John
-- [ ] Intgerate MongoDB - John
-- [ ] Storing user and accessing user info via DB - Vis
-- [ ] Storing questions and access via DB - Kashish
-- [ ] Storing answers and access via DB - John
-- [ ] Create DB tests - John
-- [ ] Create Results page - Vis
-- [ ] Creating multiple questions within same page - Vis
-- [ ] Update Diagrams with progress 
-- [ ] Create remove question functionality - Kashish
-- [ ] Navigating through survey in user POV - John
-- [ ] Implement Tests for Answer creation within survey - John
-- [ ] Adding and Removing Questions from survey tests - Kashish
-- [ ] Implement Answer Model tests (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
-- [ ] Ability to close survey and return results - Kashish
-- [ ] Update README
-- [ ] Update Kanban board - Everyone
-- [ ] Create weekly issues for scrums - Everyone
 
 ## Setup & Testing Instructions
 1.  `git clone` this repository to your local machine

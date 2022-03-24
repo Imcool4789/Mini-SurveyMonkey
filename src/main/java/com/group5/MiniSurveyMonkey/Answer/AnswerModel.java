@@ -45,6 +45,8 @@ public class AnswerModel implements Serializable {
         this.q = q;
     }
 
+
+
     public QuestionModel getQuestion(){
         return q;
     }

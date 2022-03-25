@@ -26,16 +26,22 @@ public class MCAnswer extends AnswerModel{
     }
 
     public MCAnswer(String quest, Boolean ans){
+        map = new HashMap<String, Boolean>();
         this.quest = quest;
         this.ans = ans;
+        map.put(quest,ans);
     }
 
-    public void setAns(){
+    public void setAns(String quest, Boolean ans){
         map.put(quest,ans);
     }
 
     public Boolean getAns(){
         return ans;
+    }
+
+    public Map<String, Boolean> getQuestAns(){
+        return map;
     }
 
 

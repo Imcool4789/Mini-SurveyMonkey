@@ -20,7 +20,7 @@ table, th, td {
   </tr>
   <tr th:each="questionModel : ${surveyModel.surveyQuestions}">
     <td th:text="${questionModel.id}"/>
-    <td th:text="${questionModel.type}"/>
+    <td th:text="${questionModel.getClass().getSimpleName()}"/>
     <td th:text="${questionModel.name}"/>
   </tr>
 </table>

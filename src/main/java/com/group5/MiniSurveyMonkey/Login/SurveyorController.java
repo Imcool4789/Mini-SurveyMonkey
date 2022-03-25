@@ -42,5 +42,16 @@ public class SurveyorController
         return "viewSurvey";
     }
 
-
+    @GetMapping("/surveyorIndex/closeSurvey")
+    public String closeSurvey(Model model)
+    {
+        SurveyModel surveyModel = surveyRepository.findById(1);
+        if (surveyModel != null)
+        {
+            surveyModel.setClosed(true);
+            surveyRepository.delete(surveyModel);
+        }
+        model.addAttribute("survey", surveyModel);
+        return "closeSurvey";
+    }
 }

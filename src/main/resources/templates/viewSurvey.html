@@ -24,7 +24,7 @@ table, th, td {
     <td th:text="${questionModel.getClass().getSimpleName()}"/>
     <td th:text="${questionModel.name}"/>
     <td>
-      <a th:href="@{ '/' + ${questionModel.getClass().getSimpleName()} + '/' + ${questionModel.id}}">Answer Question</a>
+      <a th:href="@{'Question/' + ${questionModel.id}}">Answer Question</a>
     </td>
   </tr>
 </table>

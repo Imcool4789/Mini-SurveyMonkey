@@ -73,8 +73,19 @@ public class QuestionController {
     }
 
     @PostMapping(value = "deleteQuestion")
-    public String deleteQuestion(@RequestParam("id") long id) {
+    public String deleteQuestion(@RequestParam("id") long id, @ModelAttribute("question") QuestionModel question, Model model) {
+        SurveyModel surveyModel = surveyRepository.findById(1);
+        if (surveyModel == null)
+        {
+            surveyModel = new SurveyModel();
+            surveyRepository.save(surveyModel);
+        }
+        surveyModel.removeQuestion((int)question.getId()-1);
         questionRepository.deleteById(id);
+
+        model.addAttribute("question", question);
+        model.addAttribute("surveyQuestions", surveyModel);
+
         return "deleteQuestion";
     }
 

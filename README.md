@@ -16,17 +16,11 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 - [x] Refactor Answer Model into different types (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
 - [x] Implement capability to add answers into survey questions - John
 - [x] Integrate MongoDB - John
-- [ ] Storing user and accessing user info via DB - Vis
-- [ ] Storing questions and accessing via DB - Kashish
-- [ ] Storing answers and accessing via DB - John
-- [ ] Create DB tests - John
-- [ ] Create Results page - Vis
-- [ ] Creating multiple questions within same page - Vis
+- [x] Implement Tests for Answer creation within survey - John
+- [x] Adding Question to Survey Tests - Kashish
 - [x] Update Diagrams with progress (ORM ER Model - Kashish, UML Class Diagram - Vis)
 - [x] Create remove question functionality - Kashish
 - [x] Navigating through survey in user POV - John
-- [ ] Implement Tests for Answer creation within survey - John
-- [ ] Adding and Removing Questions from survey tests - Kashish
 - [x] Revise QuestionModel & AnswerModel interaction for proper inheritance - Everyone
 - [x] Implement Answer Model tests (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
 - [x] Ability to close survey and return results - Kashish
@@ -35,22 +29,13 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 - [x] Create weekly issues for scrums - Everyone
 
 ## Plans for Milestone 3 - Apr 8, 2022
-- [x] CircleCI and Heroku Integration
-- [x] Database Integration (H2)
-- [x] Kanban Board Setup with 'backlog', 'in progress', 'completed' columns
-- [x] GitHub Issues for Weekly Scrum
-- [x] Code Reviews on pull requests to master prior to commit
-- [x] Spring Boot Application code functional and deployable via jar on Heroku
-- [x] Model Setup Done (Survey, Question, Answer, User)
-- [x] Tests for Controllers, Application, Database and Models
-- [x] Diagrams (UML Class and ER)
-- [x] Handles 2 form submissions (logging in and survey question creation) with valid mappings and views as outputs 
-- [x] Ability to login as either surveyor or user  
-- [x] Ability to logout when logged in as either surveyor or user
-- [x] Ability to navigate through app with respective permissions. User can only view survey, Surveyor can view and create survey questions
-- [x] Ability to add all 3 types of questions to a survey with a name 
-- [x] Ability to add questions to a survey and view the updated list of questions in the survey
-- [x] Ability to view most relevant redirects as viewable html pages with data presented visually instead of passing around JSON and display JSON objects  
+- [ ] Removing Questions from survey tests - Kashish
+- [ ] Storing user and accessing user info via DB - Vis
+- [ ] Storing questions and accessing via DB - Kashish
+- [ ] Storing answers and accessing via DB - John
+- [ ] Create DB tests - John
+- [ ] Create Results page - Vis
+- [ ] Creating multiple questions within same page - Vis
 
 ## Diagrams
 

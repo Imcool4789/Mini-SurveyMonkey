@@ -29,15 +29,15 @@ public class AnswerController {
     }
 
     @GetMapping("/surveyorIndex/Question/{id}")
-    public String showQuestionForm(@PathVariable int id, Model model)
+    public String showQuestionForm(@PathVariable String id, Model model)
     {
         SurveyModel surveyModel = surveyRepository.findById(1);
 
-        String redirectURL = "/surveyorIndex/Question/" + id + "/OpenAnswer";
+        //String redirectURL = "/surveyorIndex/Question/" + id + "/OpenAnswer";
         List<QuestionModel> lst = surveyModel.getSurveyQuestions();
-        String type = lst.get(id).getClass().getSimpleName();
+        int questionId = Integer.parseInt(id) - 1;
+        String type = lst.get(questionId).getClass().getSimpleName();
         System.out.println(type);
-        //switch ()
         if (surveyModel == null)
         {
             surveyModel = new SurveyModel();
@@ -46,35 +46,16 @@ public class AnswerController {
         OpenAnswer oA = new OpenAnswer();
         surveyModel.addAnswer(oA);
 
-        model.addAttribute("questionModel", lst.get(id));
+        model.addAttribute("questionModel", lst.get(questionId));
         model.addAttribute("answerModel", oA);
         model.addAttribute("surveyModel", surveyModel);
         model.addAttribute("id", id);
         return "OpenAnswer";
     }
-/**
-    @PostMapping("/surveyorIndex/viewQuestion")
-    public String addAnswer(@ModelAttribute("answer") AnswerModel answer, Model model) {
-        SurveyModel surveyModel = surveyRepository.findById(1);
-        if (surveyModel == null)
-        {
-            surveyModel = new SurveyModel();
-            surveyRepository.save(surveyModel);
-        }
 
-        rep.save(answer);
-        surveyModel.addAnswer(answer);
-        surveyRepository.save(surveyModel);
-
-        model.addAttribute("answer", answer);
-        model.addAttribute("surveyModel", surveyModel);
-        model.addAttribute("questionModel", surveyModel.getSurveyQuestions());
-
-        return "redirect:viewSurvey";
-    }
- */
-    @PostMapping("/surveyorIndex/Question/OpenAnswer")
-    public String addOpenAnswer(@RequestParam ("answer") String answer, Model model) {
+    @PostMapping("/surveyorIndex/Question/{id}/OpenAnswer")
+    public String addOpenAnswer(@PathVariable String id,
+                                @RequestParam ("answer") String answer, Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
         System.out.println(answer.toString());
         if (surveyModel == null)
@@ -83,16 +64,13 @@ public class AnswerController {
             surveyRepository.save(surveyModel);
         }
 
-        //rep.save(answer);
-       // surveyModel.addAnswer(answer);
-        surveyRepository.save(surveyModel);
-
-     //   model.addAttribute("answer", answer);
-        OpenAnswer oA = (OpenAnswer) surveyModel.getSurveyAnswers().get(0);
+        OpenAnswer oA = new OpenAnswer(answer);
         rep.save(oA);
         surveyModel.addAnswer(oA);
+        surveyRepository.save(surveyModel);
+
         model.addAttribute("surveyModel", surveyModel);
         model.addAttribute("questionModel", surveyModel.getSurveyQuestions());
-        return "redirect:viewSurvey";
+        return "redirect:/surveyorIndex/viewSurvey";
     }
 }

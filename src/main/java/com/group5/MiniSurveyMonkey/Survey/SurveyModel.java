@@ -1,5 +1,6 @@
 package com.group5.MiniSurveyMonkey.Survey;
 
+import com.group5.MiniSurveyMonkey.Answer.AnswerModel;
 import com.group5.MiniSurveyMonkey.Question.QuestionModel;
 
 import javax.persistence.Column;
@@ -20,6 +21,7 @@ public class SurveyModel
     private boolean isClosed;
     @Column(length = 10000000)
     private ArrayList<QuestionModel> surveyQuestions;
+    private ArrayList<AnswerModel> surveyAnswers;
 
     public SurveyModel()
     {
@@ -47,6 +49,16 @@ public class SurveyModel
             surveyQuestions.add(newQuestion);
         }
     }
+
+    public void addAnswer(AnswerModel answer){
+        if(answer != null)
+        {
+            answer.setId(counter.incrementAndGet());
+            surveyAnswers.add(answer);
+        }
+    }
+
+
 
     public void removeQuestion(int index)
     {

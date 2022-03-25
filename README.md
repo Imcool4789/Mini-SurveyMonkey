@@ -15,12 +15,12 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 ## Milestone 2 - March 25, 2022
 - [x] Refactor Answer Model into different types (MCAnswer - John, NumberRangeAnswer - Vis, OpenAnswer - Kashish)
 - [x] Implement capability to add answers into survey questions - John
-- [x] Intgerate MongoDB - John
+- [x] Integrate MongoDB - John
 - [ ] Storing user and accessing user info via DB - Vis
 - [ ] Storing questions and accessing via DB - Kashish
 - [ ] Storing answers and accessing via DB - John
 - [ ] Create DB tests - John
-- [x] Create Results page - Vis
+- [ ] Create Results page - Vis
 - [ ] Creating multiple questions within same page - Vis
 - [x] Update Diagrams with progress (ORM ER Model - Kashish, UML Class Diagram - Vis)
 - [x] Create remove question functionality - Kashish
@@ -34,7 +34,7 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 - [x] Update Kanban board - Everyone
 - [x] Create weekly issues for scrums - Everyone
 
-## Milestone 1 - March 11, 2022
+## Plans for Milestone 3 - Apr 8, 2022
 - [x] CircleCI and Heroku Integration
 - [x] Database Integration (H2)
 - [x] Kanban Board Setup with 'backlog', 'in progress', 'completed' columns
@@ -58,7 +58,8 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 ![image](https://github.com/Imcool4789/Mini-SurveyMonkey/blob/master/diagrams/Group5_DB_Diagram_John_Warde.png)
 
 ### UML Class Diagram
-![image](https://github.com/Imcool4789/Mini-SurveyMonkey/blob/master/diagrams/Group5_Class_UML_Vis_Kirubakaran.png)
+![image](https://user-images.githubusercontent.com/72267229/160118708-a4e2f8c4-0671-4576-acb2-8bba005ad8d2.png)
+
 
 ## Setup & Testing Instructions
 1.  `git clone` this repository to your local machine

@@ -28,7 +28,7 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 - [x] Update Kanban board - Everyone
 - [x] Create weekly issues for scrums - Everyone
 
-## Plans for Milestone 3 - Apr 8, 2022
+## Milestone 3 - Apr 8, 2022
 - [ ] Removing Questions from survey tests - Kashish
 - [ ] Storing user and accessing user info via DB - Vis
 - [ ] Storing questions and accessing via DB - Kashish
@@ -36,6 +36,9 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 - [ ] Create DB tests - John
 - [ ] Create Results page - Vis
 - [ ] Creating multiple questions within same page - Vis
+
+## Wiki
+To see the milestone-by-milestone progress of the project, please take a look at the [Wiki](https://github.com/Imcool4789/Mini-SurveyMonkey/wiki)
 
 ## Diagrams
 

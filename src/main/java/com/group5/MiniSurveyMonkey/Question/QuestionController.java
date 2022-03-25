@@ -17,7 +17,12 @@ public class QuestionController {
     private QuestionRepository questionRepository;
 
     @PostMapping("/surveyorIndex/createQuestion")
-    public String addQuestion(@ModelAttribute("question") QuestionModel question, Model model) {
+    public String addQuestion(@RequestParam("type") String type,
+                              @ModelAttribute("MCQuestion") MCQuestion mcQuestion,
+                              @ModelAttribute("openEnded") OpenQuestion openQuestion,
+                              @ModelAttribute("numberRange") NumberRangeQuestion numberRangeQuestion,
+                              @ModelAttribute("question") QuestionModel question,
+                              Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
         if (surveyModel == null)
         {
@@ -25,11 +30,33 @@ public class QuestionController {
             surveyRepository.save(surveyModel);
         }
 
-        questionRepository.save(question);
-        surveyModel.addQuestion(question);
-        surveyRepository.save(surveyModel);
+        switch(type)
+        {
+            case "OpenQuestion":
+                openQuestion.setId(question.getId());
+                openQuestion.setName(question.getName());
+                questionRepository.save(openQuestion);
+                surveyModel.addQuestion(openQuestion);
+                surveyRepository.save(surveyModel);
+                break;
+            case "MCQuestion":
+                mcQuestion.setId(question.getId());
+                mcQuestion.setName(question.getName());
+                mcQuestion.addOpt();
+                questionRepository.save(mcQuestion);
+                surveyModel.addQuestion(mcQuestion);
+                surveyRepository.save(surveyModel);
+                break;
+            case "NumberRangeQuestion":
+                numberRangeQuestion.setId(question.getId());
+                numberRangeQuestion.setName(question.getName());
+                questionRepository.save(numberRangeQuestion);
+                surveyModel.addQuestion(numberRangeQuestion);
+                surveyRepository.save(surveyModel);
+                break;
+        }
 
-        model.addAttribute("question", question);
+
         model.addAttribute("surveyQuestions", surveyModel);
 
         return "redirect:viewSurvey";
@@ -38,6 +65,9 @@ public class QuestionController {
     @GetMapping("/surveyorIndex/createQuestion")
     public String showQuestionForm(Model model)
     {
+        model.addAttribute("MCQuestion", new MCQuestion());
+        model.addAttribute("openEnded", new OpenQuestion());
+        model.addAttribute("numberRange", new NumberRangeQuestion());
         model.addAttribute("question", new QuestionModel());
         return "createQuestion";
     }

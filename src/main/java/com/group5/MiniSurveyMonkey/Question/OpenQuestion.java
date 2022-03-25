@@ -15,7 +15,6 @@ public class OpenQuestion extends QuestionModel{
     private List<String> responses;
 
     public OpenQuestion (){
-        setType(QuestionType.OPEN);
         this.responses = new ArrayList<>();
     }
 

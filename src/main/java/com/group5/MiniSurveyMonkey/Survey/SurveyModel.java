@@ -17,6 +17,7 @@ public class SurveyModel
     private long id;
     private String name;
     private int responseCount;
+    private boolean isClosed;
     @Column(length = 10000000)
     private ArrayList<QuestionModel> surveyQuestions;
 
@@ -26,6 +27,7 @@ public class SurveyModel
         this.name = "Survey 1";
         this.responseCount = 0;
         surveyQuestions = new ArrayList<>();
+        isClosed = false;
     }
 
     public SurveyModel(String name)
@@ -34,6 +36,7 @@ public class SurveyModel
         this.name = name;
         this.responseCount = 0;
         surveyQuestions = new ArrayList<>();
+        isClosed = false;
     }
 
     public void addQuestion(QuestionModel newQuestion)
@@ -79,6 +82,14 @@ public class SurveyModel
 
     public ArrayList<QuestionModel> getSurveyQuestions() {
         return surveyQuestions;
+    }
+
+    public boolean isClosed(){
+        return isClosed;
+    }
+
+    public void setClosed(boolean isClosed){
+        this.isClosed = isClosed;
     }
 
     @Override

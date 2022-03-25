@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Mini-Survey Monkey</title>
+    <link rel="stylesheet" th:href="@{./reset.css}" />
+    <link rel="stylesheet" th:href="@{./style.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<ul>
+    <a href="/">Home</a>
+</ul>
+<body>
+<h1>Survey Questions</h1>
+<form action ="#" th:action="@{/surveyorIndex/viewOpenAnswer}" th:object="${answer}" method="post">
+    <div th:each="questionModel : ${surveyModel.surveyQuestions}">
+        <div th:text="${questionModel.name}"/>
+        <input type="text" th:field="*{answer}" id="answer"></br></br>
+        </br></br>
+    </div>
+    <input type="submit" value ="Submit Answers"></br>
+</form>
+
+</body>
+</html>

@@ -17,11 +17,15 @@ table, th, td {
     <th>id</th>
     <th>Type</th>
     <th>Name</th>
+    <th>View Question</th>
   </tr>
   <tr th:each="questionModel : ${surveyModel.surveyQuestions}">
     <td th:text="${questionModel.id}"/>
     <td th:text="${questionModel.type}"/>
     <td th:text="${questionModel.name}"/>
+    <td>
+      <a th:href="@{ '/' + ${questionModel.getClass().getSimpleName()} + '/' + ${questionModel.id}}">Answer Question</a>
+    </td>
   </tr>
 </table>
 <div th:object="${localUser}">

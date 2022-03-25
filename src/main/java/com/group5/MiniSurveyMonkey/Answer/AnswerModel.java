@@ -13,16 +13,19 @@ public class AnswerModel implements Serializable {
     private long id;
     private String answer;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+
     private QuestionModel q;
 
     public AnswerModel(){
         this.id = 1;
+        this.answer = "";
+        q = new QuestionModel();
     }
 
-    public AnswerModel(Long id,String answer) {
+    public AnswerModel(Long id,String answer, QuestionModel q) {
         this.id = id;
         this.answer = answer;
+        this.q = q;
     }
 
     public long getId() {

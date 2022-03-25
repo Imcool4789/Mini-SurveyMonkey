@@ -18,7 +18,6 @@ public class NumberRangeQuestion extends QuestionModel
 
     public NumberRangeQuestion()
     {
-        setType(QuestionType.RANGE);
         this.min = 0;
         this.max = 10;
         this.num = 0;
@@ -26,7 +25,6 @@ public class NumberRangeQuestion extends QuestionModel
 
     public NumberRangeQuestion(int min, int max, int num)
     {
-        setType(QuestionType.RANGE);
         this.min = min;
         this.max = max;
         this.num = num;

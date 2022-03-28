@@ -1,32 +1,23 @@
 package com.group5.MiniSurveyMonkey.Answer;
 
+import com.group5.MiniSurveyMonkey.Question.OpenQuestion;
+import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
+
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
+@DiscriminatorValue("OpenAnswer")
 public class OpenAnswer extends AnswerModel{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-    private String answer;
-
     public OpenAnswer (){
-        this.answer = "";
+        super();
     }
 
-    public OpenAnswer (String answer){
-        this.answer = answer;
-    }
-
-    public String getAnswer (){
-        return answer;
-    }
-
-    public void setAnswer(String answer){
-        this.answer = answer;
+    public OpenAnswer (String answer, SurveyModel survey, OpenQuestion question){
+        super();
+        super.setAnswer(answer);
+        super.setSurvey(survey);
+        super.setQuestion(question);
     }
 }

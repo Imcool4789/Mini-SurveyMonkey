@@ -1,10 +1,11 @@
 package com.group5.MiniSurveyMonkey.Login;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
-@Entity
+@Entity(name = "User")
+@Table(name = "user")
 public class LocalUser
 {
     @Id
@@ -13,8 +14,11 @@ public class LocalUser
     private String password;
     private String accessType;
 
-    private final ArrayList<String> validUsers;
-    private final ArrayList<String> validPasswords;
+    @ElementCollection
+    private final List<String> validUsers;
+
+    @ElementCollection
+    private final List<String> validPasswords;
 
     public LocalUser()
     {

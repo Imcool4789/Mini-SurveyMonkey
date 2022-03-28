@@ -11,7 +11,7 @@ public class QuestionRangeTest {
 
     @Test
     public void TestAddGetQuestion(){
-        rangeQuestion = new NumberRangeQuestion(1, 10, 5);
+        //rangeQuestion = new NumberRangeQuestion(1, 10, 5);
         assertEquals(rangeQuestion.getMin(),1);
         assertEquals(rangeQuestion.getMax(),10);
         assertEquals(rangeQuestion.getNum(),5);

@@ -2,6 +2,7 @@ package com.group5.MiniSurveyMonkey.test.AnswerTest;
 
 import com.group5.MiniSurveyMonkey.Answer.NumberRangeAnswer;
 import org.junit.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AnswerNumberRangeTest {

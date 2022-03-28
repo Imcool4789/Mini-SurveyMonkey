@@ -1,8 +1,6 @@
 package com.group5.MiniSurveyMonkey.test.SurveyTest;
 
 import com.group5.MiniSurveyMonkey.Question.MCQuestion;
-import com.group5.MiniSurveyMonkey.Question.QuestionModel;
-import com.group5.MiniSurveyMonkey.Question.QuestionType;
 import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
 import org.junit.Test;
 
@@ -26,8 +24,8 @@ public class SurveyModelTest {
     @Test
     public void TestAddRemoveQuestion(){
         SurveyModel surveyModel = new SurveyModel("Survey1");
-        QuestionModel question = new QuestionModel(QuestionType.RANGE, "Question1");
-        surveyModel.addQuestion(question);
+      //  QuestionModel question = new QuestionModel(QuestionType.RANGE, "Question1");
+      //  surveyModel.addQuestion(question);
         //assertEquals(surveyModel.getSurveyQuestions().get(0), question);
 
         MCQuestion question2 = new MCQuestion();

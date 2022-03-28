@@ -1,9 +1,5 @@
 package com.group5.MiniSurveyMonkey.test.SurveyTest;
 
-import com.group5.MiniSurveyMonkey.Answer.AnswerModel;
-import com.group5.MiniSurveyMonkey.Question.MCQuestion;
-import com.group5.MiniSurveyMonkey.Question.QuestionModel;
-import com.group5.MiniSurveyMonkey.Question.QuestionType;
 import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
 import org.junit.Test;
 
@@ -14,11 +10,11 @@ public class SurveyAnswerCreationTest {
     @Test
     public void TestAddAnswer(){
         SurveyModel s = new SurveyModel();
-        QuestionModel q = new QuestionModel("MC", "Test Question");
-        AnswerModel a = new AnswerModel(1L,"test", q);
+        //QuestionModel q = new QuestionModel("MC", "Test Question");
+        //AnswerModel a = new AnswerModel(1L,"test", q);
 
-        s.addQuestion(q);
-        s.addAnswer(a);
+       // s.addQuestion(q);
+       // s.addAnswer(a);
 
         assertEquals(s.getSurveyAnswers().get(0).getAnswer(), "test");
     }

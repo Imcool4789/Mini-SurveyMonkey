@@ -1,6 +1,8 @@
 package com.group5.MiniSurveyMonkey.test.LoginTest;
 
-import com.group5.MiniSurveyMonkey.Login.*;
+import com.group5.MiniSurveyMonkey.Login.LoginController;
+import com.group5.MiniSurveyMonkey.Login.SurveyorController;
+import com.group5.MiniSurveyMonkey.Login.UserRepository;
 import com.group5.MiniSurveyMonkey.Survey.SurveyRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

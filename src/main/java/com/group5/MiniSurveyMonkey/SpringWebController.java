@@ -6,26 +6,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
-public class SpringWebController
-{
+public class SpringWebController {
     @Autowired
     private UserRepository userRepository;
 
     @GetMapping("/")
-    public String returnIndex(Model model)
-    {
+    public String returnIndex(Model model) {
         LocalUser user = userRepository.findById(1);
-        if (user != null)
-        {
+        if (user != null) {
             String redirectURL = user.getAccessType() + "Index";
             model.addAttribute("localUser", user);
-            return "forward:/" + redirectURL;
-        }
-        else model.addAttribute("localUser", new LocalUser());
+            return "redirect:/" + redirectURL;
+        } else
+            model.addAttribute("localUser", new LocalUser());
         return "index";
     }
-}
 
+    @GetMapping("/viewSurvey")
+    public String showSurvey(Model model) {
+        LocalUser user = userRepository.findById(1);
+        if (user != null) {
+            String redirectURL = user.getAccessType() + "Index" + "/viewSurvey";
+            model.addAttribute("localUser", user);
+            return "redirect:/" + redirectURL;
+        } else
+            model.addAttribute("localUser", new LocalUser());
+        return "index";
+    }
+
+}

@@ -1,33 +1,36 @@
 package com.group5.MiniSurveyMonkey.Question;
 
+import com.group5.MiniSurveyMonkey.Answer.NumberRangeAnswer;
+import com.group5.MiniSurveyMonkey.Answer.OpenAnswer;
+import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
+
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
+@DiscriminatorValue("NumberRangeQuestion")
 public class NumberRangeQuestion extends QuestionModel
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
     private int min;
     private int max;
     private int num;
 
     public NumberRangeQuestion()
     {
+        super();
         this.min = 0;
         this.max = 10;
         this.num = 0;
     }
 
-    public NumberRangeQuestion(int min, int max, int num)
+    public NumberRangeQuestion(int min, int max, int num, String name, SurveyModel survey)
     {
+        super();
         this.min = min;
         this.max = max;
         this.num = num;
+        super.setName(name);
+        super.setSurvey(survey);
     }
 
     public int getMin() {
@@ -53,6 +56,11 @@ public class NumberRangeQuestion extends QuestionModel
     public void setNum(int num) {
         this.num = num;
     }
+
+    public void addResponse (NumberRangeAnswer response){
+        super.getResponses().add(response);
+    }
+
 
     @Override
     public String toString() {

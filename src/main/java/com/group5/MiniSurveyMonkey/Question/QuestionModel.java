@@ -1,29 +1,40 @@
 package com.group5.MiniSurveyMonkey.Question;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.io.Serializable;
+import com.group5.MiniSurveyMonkey.Answer.AnswerModel;
+import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
 
-@Entity
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity(name="Question")
+@Table(name="question")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type", discriminatorType = DiscriminatorType.STRING)
 public class QuestionModel implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String type;
     private String name;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private SurveyModel survey;
+
+    @OneToMany(mappedBy = "question", orphanRemoval = true, cascade = CascadeType.ALL)
+    private List<AnswerModel> responses;
 
     public QuestionModel()
     {
-        id = 1;
+        this.id = 1;
+        responses = new ArrayList<>();
     }
 
-    public QuestionModel(String type, String name)
+    public QuestionModel(String name)
     {
-        id = 1;
-        this.type = type;
+        this.id = 1;
         this.name = name;
+        responses = new ArrayList<>();
     }
 
     public long getId() {
@@ -34,14 +45,6 @@ public class QuestionModel implements Serializable {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getName() {
         return name;
     }
@@ -50,11 +53,26 @@ public class QuestionModel implements Serializable {
         this.name = name;
     }
 
+    public SurveyModel getSurvey() {
+        return survey;
+    }
+
+    public void setSurvey(SurveyModel survey) {
+        this.survey = survey;
+    }
+
+    public List<AnswerModel> getResponses() {
+        return responses;
+    }
+
+    public void setResponses(List<AnswerModel> responses) {
+        this.responses = responses;
+    }
+
     @Override
     public String toString() {
         return "QuestionModel{" +
                 "id=" + id +
-                ", type='" + type + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <title>Mini-Survey Monkey</title>
+    <link rel="stylesheet" th:href="@{/reset.css}" />
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid green;
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+    }
+
+    th {
+      background-color: lightgreen;
+      padding: 8px 8px 8px 8px;
+    }
+
+    tr {
+      background-color: lightblue;
+      text-align: center;
+    }
+  </style>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/viewSurvey">View Survey</a></li>
+  </ul>
+  <body>
+    <table style="width: 100%">
+      <caption th:text="${questionTitle}"></caption>
+      <tr>
+        <th>id</th>
+        <th>Response</th>
+      </tr>
+      <tr th:each="response : ${responses}">
+        <td th:text="${responses.indexOf(response) + 1}" />
+        <td th:text="${response.getAnswer()}" />
+      </tr>
+    </table>
+  </body>
+</html>

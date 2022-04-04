@@ -3,35 +3,30 @@ package com.group5.MiniSurveyMonkey.Survey;
 import com.group5.MiniSurveyMonkey.Answer.AnswerModel;
 import com.group5.MiniSurveyMonkey.Question.QuestionModel;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Entity
+@Entity(name = "Survey")
+@Table(name = "survey")
 public class SurveyModel
 {
-    private final AtomicLong counter = new AtomicLong();
-
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
     private int responseCount;
     private boolean isClosed;
-    @Column(length = 10000000)
-    private ArrayList<QuestionModel> surveyQuestions;
 
-    public ArrayList<AnswerModel> getSurveyAnswers() {
-        return surveyAnswers;
-    }
+    @Transient
+    private final AtomicLong counter = new AtomicLong();
 
-    public void setSurveyAnswers(ArrayList<AnswerModel> surveyAnswers) {
-        this.surveyAnswers = surveyAnswers;
-    }
+    @OneToMany(mappedBy = "survey", orphanRemoval = true, cascade = CascadeType.ALL)
+    private List<QuestionModel> surveyQuestions;
 
-    @Column(length = 10000000)
-    private ArrayList<AnswerModel> surveyAnswers;
+    @OneToMany(mappedBy = "survey", orphanRemoval = true, cascade = CascadeType.ALL)
+    private List<AnswerModel> surveyAnswers;
 
     public SurveyModel()
     {
@@ -49,6 +44,7 @@ public class SurveyModel
         this.name = name;
         this.responseCount = 0;
         surveyQuestions = new ArrayList<>();
+        surveyAnswers = new ArrayList<>();
         isClosed = false;
     }
 
@@ -68,8 +64,6 @@ public class SurveyModel
             surveyAnswers.add(answer);
         }
     }
-
-
 
     public void removeQuestion(int index)
     {
@@ -103,8 +97,16 @@ public class SurveyModel
         this.responseCount = responseCount;
     }
 
-    public ArrayList<QuestionModel> getSurveyQuestions() {
+    public List<QuestionModel> getSurveyQuestions() {
         return surveyQuestions;
+    }
+
+    public List<AnswerModel> getSurveyAnswers() {
+        return surveyAnswers;
+    }
+
+    public void setSurveyAnswers(ArrayList<AnswerModel> surveyAnswers) {
+        this.surveyAnswers = surveyAnswers;
     }
 
     public boolean isClosed(){

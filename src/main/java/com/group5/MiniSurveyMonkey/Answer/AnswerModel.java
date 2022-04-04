@@ -1,31 +1,35 @@
 package com.group5.MiniSurveyMonkey.Answer;
 
 import com.group5.MiniSurveyMonkey.Question.QuestionModel;
+import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
+@Entity(name = "Answer")
+@Table(name = "answer")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type", discriminatorType = DiscriminatorType.STRING)
 public class AnswerModel implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String answer;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private QuestionModel question;
 
-    private QuestionModel q;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private SurveyModel survey;
 
     public AnswerModel(){
         this.id = 1;
         this.answer = "";
-        q = new QuestionModel();
     }
 
-    public AnswerModel(Long id,String answer, QuestionModel q) {
-        this.id = id;
+    public AnswerModel(String answer) {
+        this.id = 1;
         this.answer = answer;
-        this.q = q;
     }
 
     public long getId() {
@@ -44,14 +48,20 @@ public class AnswerModel implements Serializable {
         this.answer = answer;
     }
 
-    public void setQuestion(QuestionModel q) {
-        this.q = q;
+    public void setQuestion(QuestionModel question) {
+        this.question = question;
     }
 
-
-
     public QuestionModel getQuestion(){
-        return q;
+        return question;
+    }
+
+    public SurveyModel getSurvey() {
+        return survey;
+    }
+
+    public void setSurvey(SurveyModel survey) {
+        this.survey = survey;
     }
 
     @Override
@@ -59,7 +69,6 @@ public class AnswerModel implements Serializable {
         return "AnswerModel{" +
                 "id=" + id +
                 ", answer='" + answer + '\'' +
-                ", question=" + getQuestion() +
                 '}';
     }
 }

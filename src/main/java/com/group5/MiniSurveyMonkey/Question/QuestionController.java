@@ -5,7 +5,10 @@ import com.group5.MiniSurveyMonkey.Survey.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class QuestionController {
@@ -22,7 +25,8 @@ public class QuestionController {
                               @ModelAttribute("openEnded") OpenQuestion openQuestion,
                               @ModelAttribute("numberRange") NumberRangeQuestion numberRangeQuestion,
                               @ModelAttribute("question") QuestionModel question,
-                              Model model) {
+                              Model model)
+    {
         SurveyModel surveyModel = surveyRepository.findById(1);
         if (surveyModel == null)
         {
@@ -33,47 +37,54 @@ public class QuestionController {
         switch(type)
         {
             case "OpenQuestion":
+                openQuestion.setSurvey(surveyModel);
                 openQuestion.setId(question.getId());
                 openQuestion.setName(question.getName());
-                questionRepository.save(openQuestion);
                 surveyModel.addQuestion(openQuestion);
+                questionRepository.save(openQuestion);
                 surveyRepository.save(surveyModel);
                 break;
             case "MCQuestion":
+                mcQuestion.setSurvey(surveyModel);
                 mcQuestion.setId(question.getId());
                 mcQuestion.setName(question.getName());
                 mcQuestion.addOpt();
-                questionRepository.save(mcQuestion);
                 surveyModel.addQuestion(mcQuestion);
+                questionRepository.save(mcQuestion);
                 surveyRepository.save(surveyModel);
                 break;
             case "NumberRangeQuestion":
+                numberRangeQuestion.setSurvey(surveyModel);
                 numberRangeQuestion.setId(question.getId());
                 numberRangeQuestion.setName(question.getName());
-                questionRepository.save(numberRangeQuestion);
                 surveyModel.addQuestion(numberRangeQuestion);
+                questionRepository.save(numberRangeQuestion);
                 surveyRepository.save(surveyModel);
                 break;
         }
-
-
-        model.addAttribute("surveyQuestions", surveyModel);
-
         return "redirect:viewSurvey";
     }
 
     @GetMapping("/surveyorIndex/createQuestion")
     public String showQuestionForm(Model model)
     {
-        model.addAttribute("MCQuestion", new MCQuestion());
-        model.addAttribute("openEnded", new OpenQuestion());
-        model.addAttribute("numberRange", new NumberRangeQuestion());
-        model.addAttribute("question", new QuestionModel());
+        MCQuestion mcQuestion = new MCQuestion();
+        OpenQuestion openQuestion = new OpenQuestion();
+        NumberRangeQuestion numberRangeQuestion = new NumberRangeQuestion();
+        QuestionModel question = new QuestionModel();
+
+        model.addAttribute("MCQuestion", mcQuestion);
+        model.addAttribute("openEnded", openQuestion);
+        model.addAttribute("numberRange", numberRangeQuestion);
+        model.addAttribute("question", question);
         return "createQuestion";
     }
 
     @PostMapping(value = "deleteQuestion")
-    public String deleteQuestion(@RequestParam("id") long id, @ModelAttribute("question") QuestionModel question, Model model) {
+    public String deleteQuestion(@RequestParam("id") long id,
+                                 @ModelAttribute("question") QuestionModel question,
+                                 Model model)
+    {
         SurveyModel surveyModel = surveyRepository.findById(1);
         if (surveyModel == null)
         {

@@ -1,39 +1,34 @@
 package com.group5.MiniSurveyMonkey.Question;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import com.group5.MiniSurveyMonkey.Answer.OpenAnswer;
+import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("OpenQuestion")
 public class OpenQuestion extends QuestionModel{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-    @ElementCollection
-    private List<String> responses;
-
     public OpenQuestion (){
-        this.responses = new ArrayList<>();
+        super();
     }
 
-    public List<String> getResponses(){
-        return responses;
+    public OpenQuestion (String name, SurveyModel survey)
+    {
+        super();
+        super.setName(name);
+        super.setSurvey(survey);
     }
 
-    public void setResponses(ArrayList<String> responses){
-        this.responses = responses;
-    }
-
-    public void addResponse (String response){
-        responses.add(response);
+    public void addResponse (OpenAnswer response){
+        super.getResponses().add(response);
     }
 
     @Override
     public String toString() {
         return "OpenEndedQuestion{" +
-                "responses=" + responses +
+                "responses=" + super.getResponses() +
                 '}';
     }
 }

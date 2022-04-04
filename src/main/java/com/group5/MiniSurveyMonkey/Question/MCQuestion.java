@@ -1,15 +1,18 @@
 package com.group5.MiniSurveyMonkey.Question;
 
+import com.group5.MiniSurveyMonkey.Answer.MCAnswer;
+import com.group5.MiniSurveyMonkey.Answer.NumberRangeAnswer;
+import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.*;
 
 @Entity
+@DiscriminatorValue("MCQuestion")
 public class MCQuestion extends QuestionModel {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
 
     @ElementCollection
     private List<String> opt = new ArrayList<>();
@@ -19,10 +22,16 @@ public class MCQuestion extends QuestionModel {
     private String mc3;
     private String mc4;
 
-
     public MCQuestion()
     {
+        super();
+    }
 
+    public MCQuestion(String name, SurveyModel survey)
+    {
+        super();
+        super.setName(name);
+        super.setSurvey(survey);
     }
 
     public void setOpt(List<String> opt) {
@@ -69,6 +78,10 @@ public class MCQuestion extends QuestionModel {
         opt.add(mc2);
         opt.add(mc3);
         opt.add(mc4);
+    }
+
+    public void addResponse (MCAnswer response){
+        super.getResponses().add(response);
     }
 
     @Override

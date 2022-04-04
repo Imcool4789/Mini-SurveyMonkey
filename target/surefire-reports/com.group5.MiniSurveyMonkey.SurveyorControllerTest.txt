@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.group5.MiniSurveyMonkey.SurveyorControllerTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.5 s - in com.group5.MiniSurveyMonkey.SurveyorControllerTest

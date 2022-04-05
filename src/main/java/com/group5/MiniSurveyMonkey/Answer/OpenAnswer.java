@@ -8,16 +8,16 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("OpenAnswer")
-public class OpenAnswer extends AnswerModel{
+public class OpenAnswer extends AnswerModel {
 
-    public OpenAnswer (){
+    public OpenAnswer() {
         super();
     }
 
-    public OpenAnswer (String answer, SurveyModel survey, OpenQuestion question){
+    public OpenAnswer(String answer, OpenQuestion question) {
         super();
         super.setAnswer(answer);
-        super.setSurvey(survey);
+        super.setSurvey(question.getSurvey());
         super.setQuestion(question);
     }
 }

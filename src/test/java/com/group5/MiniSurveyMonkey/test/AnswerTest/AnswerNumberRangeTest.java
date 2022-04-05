@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AnswerNumberRangeTest {
 
     @Test
-    public void testingAnswerCreation(){
+    public void testingAnswerCreation() {
         NumberRangeAnswer numberRangeAnswer = new NumberRangeAnswer();
         assertEquals(numberRangeAnswer.getNum(), 1);
 
@@ -17,7 +17,7 @@ public class AnswerNumberRangeTest {
     }
 
     @Test
-    public void testAnswerEdit(){
+    public void testAnswerEdit() {
         NumberRangeAnswer numberRangeAnswer = new NumberRangeAnswer();
         assertEquals(numberRangeAnswer.getNum(), 1);
 

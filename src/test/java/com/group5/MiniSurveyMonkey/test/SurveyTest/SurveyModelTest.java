@@ -1,6 +1,7 @@
 package com.group5.MiniSurveyMonkey.test.SurveyTest;
 
 import com.group5.MiniSurveyMonkey.Question.MCQuestion;
+import com.group5.MiniSurveyMonkey.Question.NumberRangeQuestion;
 import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SurveyModelTest {
 
     @Test
-    public void TestConstructor(){
+    public void TestConstructor() {
         SurveyModel surveyModel = new SurveyModel("Survey1");
         assertEquals(surveyModel.getName(), "Survey1");
         assertEquals(surveyModel.getId(), 1);
@@ -22,20 +23,20 @@ public class SurveyModelTest {
     }
 
     @Test
-    public void TestAddRemoveQuestion(){
+    public void TestAddRemoveQuestion() {
         SurveyModel surveyModel = new SurveyModel("Survey1");
-      //  QuestionModel question = new QuestionModel(QuestionType.RANGE, "Question1");
-      //  surveyModel.addQuestion(question);
-        //assertEquals(surveyModel.getSurveyQuestions().get(0), question);
+        NumberRangeQuestion question = new NumberRangeQuestion("Question 1", surveyModel, 1, 10);
+        surveyModel.addQuestion(question);
+        assertEquals(surveyModel.getSurveyQuestions().get(0), question);
 
-        MCQuestion question2 = new MCQuestion();
+        MCQuestion question2 = new MCQuestion("Question 2", surveyModel);
         surveyModel.addQuestion(question2);
         surveyModel.removeQuestion(0);
         assertEquals(surveyModel.getSurveyQuestions().get(0), question2);
     }
 
     @Test
-    public void TestId(){
+    public void TestId() {
         SurveyModel surveyModel = new SurveyModel("Survey1");
         assertEquals(surveyModel.getId(), 1);
         surveyModel.setId(2);
@@ -43,7 +44,7 @@ public class SurveyModelTest {
     }
 
     @Test
-    public void TestName(){
+    public void TestName() {
         SurveyModel surveyModel = new SurveyModel("Survey1");
         assertEquals(surveyModel.getName(), "Survey1");
         surveyModel.setName("Survey2");
@@ -51,7 +52,7 @@ public class SurveyModelTest {
     }
 
     @Test
-    public void TestResponseCount(){
+    public void TestResponseCount() {
         SurveyModel surveyModel = new SurveyModel("Survey1");
         assertEquals(surveyModel.getResponseCount(), 0);
         surveyModel.setResponseCount(30);

@@ -8,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SurveyAnswerCreationTest {
 
     @Test
-    public void TestAddAnswer(){
+    public void TestAddAnswer() {
         SurveyModel s = new SurveyModel();
         //QuestionModel q = new QuestionModel("MC", "Test Question");
         //AnswerModel a = new AnswerModel(1L,"test", q);
 
-       // s.addQuestion(q);
-       // s.addAnswer(a);
+        // s.addQuestion(q);
+        // s.addAnswer(a);
 
         assertEquals(s.getSurveyAnswers().get(0).getAnswer(), "test");
     }

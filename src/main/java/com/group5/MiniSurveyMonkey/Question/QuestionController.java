@@ -25,17 +25,14 @@ public class QuestionController {
                               @ModelAttribute("openEnded") OpenQuestion openQuestion,
                               @ModelAttribute("numberRange") NumberRangeQuestion numberRangeQuestion,
                               @ModelAttribute("question") QuestionModel question,
-                              Model model)
-    {
+                              Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
-        if (surveyModel == null)
-        {
+        if (surveyModel == null) {
             surveyModel = new SurveyModel();
             surveyRepository.save(surveyModel);
         }
 
-        switch(type)
-        {
+        switch (type) {
             case "OpenQuestion":
                 openQuestion.setSurvey(surveyModel);
                 openQuestion.setId(question.getId());
@@ -66,8 +63,7 @@ public class QuestionController {
     }
 
     @GetMapping("/surveyorIndex/createQuestion")
-    public String showQuestionForm(Model model)
-    {
+    public String showQuestionForm(Model model) {
         MCQuestion mcQuestion = new MCQuestion();
         OpenQuestion openQuestion = new OpenQuestion();
         NumberRangeQuestion numberRangeQuestion = new NumberRangeQuestion();
@@ -83,15 +79,13 @@ public class QuestionController {
     @PostMapping(value = "deleteQuestion")
     public String deleteQuestion(@RequestParam("id") long id,
                                  @ModelAttribute("question") QuestionModel question,
-                                 Model model)
-    {
+                                 Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
-        if (surveyModel == null)
-        {
+        if (surveyModel == null) {
             surveyModel = new SurveyModel();
             surveyRepository.save(surveyModel);
         }
-        surveyModel.removeQuestion((int)question.getId()-1);
+        surveyModel.removeQuestion((int) question.getId() - 1);
         questionRepository.deleteById(id);
 
         model.addAttribute("question", question);

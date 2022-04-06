@@ -6,7 +6,7 @@ import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Entity
@@ -23,14 +23,14 @@ public class MCQuestion extends QuestionModel {
 
     public MCQuestion() {
         super();
-        this.responseMap = new HashMap<>();
+        responseMap = new LinkedHashMap<>();
     }
 
     public MCQuestion(String name, SurveyModel survey) {
         super();
         super.setName(name);
         super.setSurvey(survey);
-        this.responseMap = new HashMap<>();
+        responseMap = new LinkedHashMap<>();
     }
 
     public String getMc1() {

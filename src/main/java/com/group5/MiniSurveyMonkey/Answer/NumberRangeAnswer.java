@@ -2,10 +2,12 @@ package com.group5.MiniSurveyMonkey.Answer;
 
 import com.group5.MiniSurveyMonkey.Question.NumberRangeQuestion;
 import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+@Document("NumberRangeAnswer")
 @Entity
 @DiscriminatorValue("NumberRangeAnswer")
 public class NumberRangeAnswer extends AnswerModel {

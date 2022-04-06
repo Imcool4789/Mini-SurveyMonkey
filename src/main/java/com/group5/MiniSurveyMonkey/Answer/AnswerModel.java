@@ -2,10 +2,12 @@ package com.group5.MiniSurveyMonkey.Answer;
 
 import com.group5.MiniSurveyMonkey.Question.QuestionModel;
 import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Document("AnswerModel")
 @Entity(name = "Answer")
 @Table(name = "answer")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

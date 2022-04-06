@@ -2,6 +2,7 @@ package com.group5.MiniSurveyMonkey.Answer;
 
 import com.group5.MiniSurveyMonkey.Question.QuestionModel;
 import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import java.util.HashMap;
 import java.util.Map;
 
+@Document("MCAnswer")
 @Entity
 @DiscriminatorValue("MCAnswer")
 public class MCAnswer extends AnswerModel{

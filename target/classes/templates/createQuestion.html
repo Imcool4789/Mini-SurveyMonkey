@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Mini-Survey Monkey</title>
+    <link rel="stylesheet" th:href="@{/reset.css}" />
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>
+</head>
+<body>
+<ul>
+    <li><a href="/">Home</a></li>
+</ul>
+<div id="questionCreation">
+    <h2>Adding Question to Survey</h2>
+    <form action ="#" th:action="@{/surveyorIndex/createQuestion}" th:object="${question}" method="post">
+        <p>Enter a question name: <input type="text" id ="name" th:field="*{name}" required></p>
+        <p>Choose a question type: <select name="type" id="type">
+            <option value="MCQuestion">Multiple Choice Question</option>
+            <option value="OpenQuestion">Open Ended Question</option>
+            <option value="NumberRangeQuestion">Number Range Question</option>
+        </select>
+            <button id="typeSave" type="button"  onclick="generateOptions()">Save Type</button>
+        </p>
+        <div id ="multipleChoice" style = "display:none" th:object="${MCQuestion}">
+            <p>Multiple Choice Option 1: <input type="text" th:field="*{mc1}"></p>
+            <p>Multiple Choice Option 2: <input type="text" th:field="*{mc2}"></p>
+            <p>Multiple Choice Option 3: <input type="text" th:field="*{mc3}"></p>
+            <p>Multiple Choice Option 4: <input type="text" th:field="*{mc4}"></p>
+        </div>
+        <div id ="numberRange" style = "display:none" th:object="${numberRange}">
+            <p>Enter the minimum number in the range: <input type="text" th:field="*{min}"></p>
+            <p>Enter the maximum number in the range: <input type="text" th:field="*{max}"></p>
+        </div>
+        <script>
+            function generateOptions() {
+            var mainDiv = document.getElementById("questionCreation");
+            var typeSave = document.getElementById("typeSave");
+            typeSave.parentNode.removeChild(typeSave);
+
+            var type = document.getElementById("type");
+            var currType = document.createElement("option");
+            currType.value = type.value;
+
+            switch(type.value)
+            {
+                case "MCQuestion":
+                    type.length = 0;
+                    currType.text = "Multiple Choice Question";
+                    type.add(currType);
+
+                    var mcDiv = document.getElementById("multipleChoice");
+                    mcDiv.style.display = "block";
+                    break;
+                case "OpenQuestion":
+                    type.length = 0;
+                    currType.text = "Open Ended Question";
+                    type.add(currType);
+                    break;
+                case "NumberRangeQuestion":
+                    type.length = 0;
+                    currType.text = "Number Range Question";
+                    type.add(currType);
+                    var numberRangeDiv = document.getElementById("numberRange");
+                    numberRangeDiv.style.display = "block";
+                    break;
+            }
+            }
+        </script>
+        </br>
+        <input type="submit" value ="Submit">
+    </form>
+</div>
+<footer>
+    <p id="copyright">Copyright &copy; 2022 Mini-SurveyMonkey Group 5</p>
+</footer>
+</body>
+</html>

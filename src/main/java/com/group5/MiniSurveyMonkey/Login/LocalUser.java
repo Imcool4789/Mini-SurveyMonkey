@@ -1,9 +1,12 @@
 package com.group5.MiniSurveyMonkey.Login;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Document("LocalUser")
 @Entity(name = "User")
 @Table(name = "user")
 public class LocalUser

@@ -3,6 +3,7 @@ package com.group5.MiniSurveyMonkey.Question;
 import com.group5.MiniSurveyMonkey.Answer.MCAnswer;
 import com.group5.MiniSurveyMonkey.Answer.NumberRangeAnswer;
 import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
@@ -10,6 +11,7 @@ import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
+@Document("MCQuestion")
 @Entity
 @DiscriminatorValue("MCQuestion")
 public class MCQuestion extends QuestionModel {

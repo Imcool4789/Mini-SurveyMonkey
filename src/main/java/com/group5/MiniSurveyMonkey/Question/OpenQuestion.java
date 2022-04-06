@@ -2,10 +2,12 @@ package com.group5.MiniSurveyMonkey.Question;
 
 import com.group5.MiniSurveyMonkey.Answer.OpenAnswer;
 import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+@Document("OpenQuestion")
 @Entity
 @DiscriminatorValue("OpenQuestion")
 public class OpenQuestion extends QuestionModel{

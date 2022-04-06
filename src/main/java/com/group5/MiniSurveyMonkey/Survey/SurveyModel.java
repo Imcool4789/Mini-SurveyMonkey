@@ -2,12 +2,14 @@ package com.group5.MiniSurveyMonkey.Survey;
 
 import com.group5.MiniSurveyMonkey.Answer.AnswerModel;
 import com.group5.MiniSurveyMonkey.Question.QuestionModel;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+@Document("SurveyModel")
 @Entity(name = "Survey")
 @Table(name = "survey")
 public class SurveyModel

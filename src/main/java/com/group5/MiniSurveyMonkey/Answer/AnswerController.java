@@ -61,6 +61,7 @@ public class AnswerController {
         model.addAttribute("numRangeQuestion", numQuestion);
         model.addAttribute("mcQuestion",mcQuestion);
 
+
         if(question.getClass().getSimpleName().equals("MCQuestion")){
             return "mcAnswer";
         }
@@ -145,6 +146,4 @@ public class AnswerController {
 
         return "redirect:/surveyorIndex/Question/{id}/Result";
     }
-
-
 }

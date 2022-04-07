@@ -6,7 +6,7 @@ import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Entity
@@ -21,18 +21,19 @@ public class NumberRangeQuestion extends QuestionModel {
 
     public NumberRangeQuestion() {
         super();
-        this.min = 0;
-        this.max = 10;
-        this.num = 0;
-        this.responseMap = new HashMap<>();
+        min = 0;
+        max = 10;
+        num = 0;
+        responseMap = new LinkedHashMap<>();
     }
 
     public NumberRangeQuestion(String name, SurveyModel survey, int min, int max) {
         super();
         this.min = min;
         this.max = max;
-        this.num = 0;
-        this.responseMap = new HashMap<>();
+        num = 0;
+        responseMap = new LinkedHashMap<>();
+        survey.addQuestion(this);
         super.setName(name);
         super.setSurvey(survey);
     }

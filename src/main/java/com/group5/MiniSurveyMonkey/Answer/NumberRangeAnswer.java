@@ -22,6 +22,8 @@ public class NumberRangeAnswer extends AnswerModel {
         super.setSurvey(question.getSurvey());
         super.setQuestion(question);
         this.updateResponses(num, question);
+        question.addResponse(this);
+        updateResponses(num, question);
     }
 
     public NumberRangeAnswer(int num) {

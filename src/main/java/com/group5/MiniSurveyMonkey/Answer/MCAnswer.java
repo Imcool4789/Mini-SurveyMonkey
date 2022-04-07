@@ -14,7 +14,7 @@ public class MCAnswer extends AnswerModel {
 
     public MCAnswer() {
         super();
-        this.answer = "";
+        answer = "";
     }
 
     public MCAnswer(String answer, MCQuestion question) {
@@ -22,7 +22,9 @@ public class MCAnswer extends AnswerModel {
         this.answer = answer;
         super.setSurvey(question.getSurvey());
         super.setQuestion(question);
-        this.updateResponses(answer, question);
+        updateResponses(answer, question);
+        question.addResponse(this);
+        updateResponses(answer, question);
     }
 
     public void updateResponses(String answer, MCQuestion question) {

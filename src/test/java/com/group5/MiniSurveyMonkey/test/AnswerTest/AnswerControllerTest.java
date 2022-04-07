@@ -10,7 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(AnswerControllerTest.class)
 @AutoConfigureMockMvc
-public class AnswerControllerTest {
+public class  AnswerControllerTest {
 
     @Autowired
     private MockMvc mvc;

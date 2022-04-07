@@ -14,7 +14,7 @@
       <h2>Question Deleted</h2>
       <form
         action="#"
-        th:action="@{/surveyorIndex/deleteQuestion}"
+        th:action="@{'/surveyorIndex/deleteQuestion/' + ${questionModel.id}}"
         th:object="${question}"
         method="post"
       >

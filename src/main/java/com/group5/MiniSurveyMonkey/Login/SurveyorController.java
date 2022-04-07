@@ -35,6 +35,7 @@ public class SurveyorController
             surveyModel = new SurveyModel();
             surveyRepository.save(surveyModel);
         }
+        System.out.println(surveyModel.getSurveyQuestions());
         String surveyTitle = "Questions for " + surveyModel.getName() + "[id =" + surveyModel.getId() + "]";
 
         model.addAttribute("surveyTitle", surveyTitle);

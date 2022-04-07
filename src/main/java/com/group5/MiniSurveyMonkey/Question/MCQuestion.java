@@ -30,6 +30,7 @@ public class MCQuestion extends QuestionModel {
         super();
         super.setName(name);
         super.setSurvey(survey);
+        survey.addQuestion(this);
         responseMap = new LinkedHashMap<>();
     }
 

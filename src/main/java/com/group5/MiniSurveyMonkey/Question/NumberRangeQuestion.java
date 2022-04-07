@@ -33,6 +33,7 @@ public class NumberRangeQuestion extends QuestionModel {
         this.max = max;
         num = 0;
         responseMap = new LinkedHashMap<>();
+        survey.addQuestion(this);
         super.setName(name);
         super.setSurvey(survey);
     }

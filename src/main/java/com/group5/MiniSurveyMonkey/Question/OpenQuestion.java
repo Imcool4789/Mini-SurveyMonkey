@@ -24,6 +24,7 @@ public class OpenQuestion extends QuestionModel {
         super();
         super.setName(name);
         super.setSurvey(survey);
+        survey.addQuestion(this);
         responseMap = new LinkedHashMap<>();
     }
 

@@ -25,12 +25,16 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 - Vis Kirubakaran
 
 ## Milestone 3 - Apr 8, 2022
-- [ ] [Working on Results Page](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/10)
+- [x] [Working on Results Page](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/10)
+- [x] [Result Page Templates of all types](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/45)
 - [ ] [User POV](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/49)
 - [ ] [Close Survey Functionality](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/59)
 - [ ] [Delete Question Functionality](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/60)
 - [ ] [Integrating MongoDB](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/67)
 - [ ] [Update Wiki for M3](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/74)
+- [x] [Fix HTML Stylesheet Reference](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/76)
+- [x] [Refactor Model Inheritance and Multiplicity](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/77)
+- [x] [Update viewSurvey CSS](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/78)
 - [ ] [Progress Bar](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/80)
 - [ ] [Update README](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/81)
 - [ ] [Update Diagrams and add generated ER Diagram](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/82)
@@ -42,8 +46,9 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 - [ ] [Survey Templates](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/89)
 - [ ] [Weekly Scrum Apr 4th](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/90)
 - [ ] [Multiple survey support](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/91)
-- [ ] [Save Results page as pdf](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/92)
+- [x] [Save Results page as pdf](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/92)
 - [ ] [Refactor repository interaction with models](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/93)
+- [x] [Single Results Page & Multiple Results Page](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/95)
 
 ## Wiki
 To see the milestone-by-milestone progress of the project, please take a look at the [Wiki](https://github.com/Imcool4789/Mini-SurveyMonkey/wiki).

@@ -13,6 +13,7 @@ The Mini-SurveyMonkey Spring Boot application will allow a surveyor to create a 
 The repository is sorted into various packages such as `Login`, `Survey`, `Question`, `Answer` and these packages group together classes relevant to the specific package name. E.x. `Login` will contain model, repository and controller classes relevant to the act of logging into the app.
 
 ## Relevant Links
+
 - [CircleCI](https://circleci.com/gh/Imcool4789/Mini-SurveyMonkey/tree/master)
 - [Heroku App Link](https://minisurveymonkey.herokuapp.com/)
 - [Kanban Project Board](https://github.com/Imcool4789/Mini-SurveyMonkey/projects/1)

@@ -1,51 +1,35 @@
 package com.group5.MiniSurveyMonkey.Answer;
 
-import com.group5.MiniSurveyMonkey.Question.QuestionModel;
-import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
+import com.group5.MiniSurveyMonkey.Question.MCQuestion;
 
 import javax.persistence.DiscriminatorValue;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import java.util.HashMap;
 import java.util.Map;
 
 @Entity
 @DiscriminatorValue("MCAnswer")
-public class MCAnswer extends AnswerModel{
-    @ElementCollection
-    private Map<String, Boolean> map;
+public class MCAnswer extends AnswerModel {
 
-    private String quest;
-    private Boolean ans;
+    private String answer;
 
-    public MCAnswer(){
+    public MCAnswer() {
         super();
-        map = new HashMap<String, Boolean>();
-        quest = "";
-        ans = false;
+        answer = "";
     }
 
-    public MCAnswer(String quest, Boolean ans, SurveyModel survey, QuestionModel question){
+    public MCAnswer(String answer, MCQuestion question) {
         super();
-        map = new HashMap<String, Boolean>();
-        this.quest = quest;
-        this.ans = ans;
-        map.put(quest,ans);
-        super.setSurvey(survey);
+        this.answer = answer;
+        super.setSurvey(question.getSurvey());
         super.setQuestion(question);
+        updateResponses(answer, question);
+        question.addResponse(this);
+        updateResponses(answer, question);
     }
 
-    public void setAns(String quest, Boolean ans){
-        map.put(quest,ans);
+    public void updateResponses(String answer, MCQuestion question) {
+        Map<String, Integer> questionResponses = question.getResponseMap();
+        questionResponses.put(answer, questionResponses.getOrDefault(answer, 0) + 1);
     }
-
-    public Boolean getAns(){
-        return ans;
-    }
-
-    public Map<String, Boolean> getQuestAns(){
-        return map;
-    }
-
 
 }

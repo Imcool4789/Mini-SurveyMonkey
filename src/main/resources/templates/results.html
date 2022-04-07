@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Mini-SurveyMonkey</title>
+    <link rel="stylesheet" th:href="@{/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script th:inline="javascript" type="text/javascript">
+        google.charts.load("current", {packages: ["corechart", "table"]});
+        google.charts.setOnLoadCallback(drawCharts);
+
+        var questionTypes = [[${questionTypes}]];
+        var graphDatas = [[${graphDatas}]];
+        var graphTitles = [[${graphTitles}]];
+
+        function drawCharts() {
+            var parentDiv = document.getElementById('parentDiv');
+            for (var i = 0; i < graphDatas.length; i++) {
+                var type = questionTypes[i];
+                var data = new google.visualization.DataTable();
+                if (type == 'MCQuestion') {
+                    data.addColumn('string', 'Options');
+                    data.addColumn('number', 'Total Number of User Responses');
+                    data.addRows(graphDatas[i]);
+
+                    var options = {
+                        title: graphTitles[i],
+                        width: 700,
+                        height: 500,
+                        legend: {position: 'right'},
+                        colors: ['#8A9A5B', '#40E0D0', '#BA55D3', 'FF8C00']
+                    };
+
+                    var chartDiv = document.createElement('div');
+                    chartDiv.style.margin = "0 auto";
+                    chartDiv.style.width = "700px";
+                    chartDiv.style.height = "500px";
+                    var chartContainer = parentDiv.appendChild(chartDiv);
+                    var chart = new google.visualization.PieChart(chartContainer);
+                    chart.draw(data, options);
+
+                } else if (type == 'NumberRangeQuestion') {
+                    data.addColumn('string', 'Rating Number');
+                    data.addColumn('number', 'Total Number of User Ratings');
+                    data.addRows(graphDatas[i]);
+
+                    var options = {
+                        title: graphTitles[i],
+                        vAxis: {
+                            title: 'Total Number of User Ratings',
+                            minValue: 0,
+                            format: '0'
+                        },
+                        hAxis: {
+                            title: 'Number Range',
+                            format: '0'
+                        },
+                        width: 700,
+                        height: 500,
+                        legend: {position: 'right'},
+                        bar: {groupWidth: '95%'},
+                        colors: ['green']
+                    };
+
+                    var chartDiv = document.createElement('div');
+                    chartDiv.style.margin = "0 auto";
+                    chartDiv.style.width = "700px";
+                    chartDiv.style.height = "500px";
+                    var chartContainer = parentDiv.appendChild(chartDiv);
+                    var chart = new google.visualization.ColumnChart(chartContainer);
+                    chart.draw(data, options);
+                } else if (type == 'OpenQuestion') {
+                    data.addColumn('number', 'id');
+                    data.addColumn('string', 'Response');
+                    data.addRows(graphDatas[i]);
+
+                    var options = {
+                        allowHtml: true,
+                        showRowNumber: false,
+                        width: '100%',
+                        height: '100%',
+                        legend: {position: 'right'},
+                    };
+                    var chartDiv = document.createElement('div');
+                    chartDiv.style.margin = "0 auto";
+                    chartDiv.style.width = "700px";
+                    chartDiv.style.height = "500px";
+                    var chartContainer = parentDiv.appendChild(chartDiv);
+                    var table = new google.visualization.Table(chartContainer);
+                    table.draw(data, options);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/viewSurvey">View Survey</a></li>
+</ul>
+<div class="sidenav">
+    <a th:each="questionModel : ${surveyModel.surveyQuestions}"
+       th:href="@{'Question/' + ${questionModel.id} + '/Result'}"
+       th:text="'View Question #' + ${questionModel.getId()}"></a>
+    <button class="button" onclick="convertHTMLtoPDF()" type="button">Save Results as PDF</button>
+</div>
+<div id="parentDiv"></div>
+<footer>
+    <p id="copyright">Copyright &copy; 2022 Mini-SurveyMonkey Group 5</p>
+</footer>
+</body>
+<script>
+    function convertHTMLtoPDF() {
+        var parentDiv = document.getElementById("parentDiv");
+        window.scrollTo(0, 0);
+        var opt = {
+            margin: [15, 15],
+            filename: 'Mini-SurveyMonkey [Group 5] Results.pdf',
+            image: {type: 'jpeg', quality: 0.98},
+            html2canvas: {scale: 2, letterRendering: true},
+            jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'},
+            pagebreak: {mode: ['avoid-all', 'css', 'legacy']}
+        };
+        html2pdf().set(opt).from(parentDiv).save();
+    }
+</script>
+</html>

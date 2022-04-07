@@ -15,8 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(controllers = SpringWebController.class)
 @AutoConfigureMockMvc
-public class SpringWebControllerTest
-{
+public class SpringWebControllerTest {
     @MockBean
     private UserRepository userRepository;
 
@@ -24,8 +23,7 @@ public class SpringWebControllerTest
     private MockMvc mockMvc;
 
     @Test
-    public void shouldReturnIndex() throws Exception
-    {
+    public void shouldReturnIndex() throws Exception {
         this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk());
     }
 }

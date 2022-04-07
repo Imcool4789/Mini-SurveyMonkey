@@ -19,8 +19,8 @@ public class AnswerControllerTest {
     private AnswerRepository rep;
 
     @Test
-    public void TestCreateMockMVC(){
-     //   mvc = MockMvcBuilders.standaloneSetup(new AnswerController(rep)).build();
-      //  assertNotNull(mvc);
+    public void TestCreateMockMVC() {
+        //   mvc = MockMvcBuilders.standaloneSetup(new AnswerController(rep)).build();
+        //  assertNotNull(mvc);
     }
 }

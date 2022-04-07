@@ -28,13 +28,12 @@ public class AnswerController {
 
     @GetMapping(value = "/answers")
     public List<AnswerModel> getAll() {
-        return (List<AnswerModel>) answerRepository.findAll();
+        return answerRepository.findAll();
     }
 
     @GetMapping("/surveyorIndex/Question/{id}")
     public String showQuestionForm(@PathVariable String id,
-                                   Model model)
-    {
+                                   Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
         if (surveyModel == null) {
             surveyModel = new SurveyModel();
@@ -57,8 +56,7 @@ public class AnswerController {
     @PostMapping("/surveyorIndex/Question/{id}/OpenAnswer")
     public String addOpenAnswer(@PathVariable String id,
                                 @RequestParam("answer") String answer,
-                                Model model)
-    {
+                                Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
         if (surveyModel == null) {
             surveyModel = new SurveyModel();
@@ -69,7 +67,7 @@ public class AnswerController {
         List<QuestionModel> questions = surveyModel.getSurveyQuestions();
         OpenQuestion question = (OpenQuestion) questions.get(questionID);
 
-        OpenAnswer openAnswer = new OpenAnswer(answer, surveyModel, question);
+        OpenAnswer openAnswer = new OpenAnswer(answer, question);
 
         List<AnswerModel> responses = question.getResponses();
         responses.add(openAnswer);
@@ -82,36 +80,4 @@ public class AnswerController {
         model.addAttribute("questionModel", surveyModel.getSurveyQuestions());
         return "redirect:/surveyorIndex/Question/{id}/Result";
     }
-
-    @GetMapping("/surveyorIndex/Question/{id}/Result")
-    public String viewOpenResult(@PathVariable String id,
-                                 Model model)
-    {
-        SurveyModel surveyModel = surveyRepository.findById(1);
-
-        if (surveyModel == null) {
-            surveyModel = new SurveyModel();
-            surveyRepository.save(surveyModel);
-        }
-
-        int questionID = Integer.parseInt(id) - 1;
-        List<QuestionModel> questions = surveyModel.getSurveyQuestions();
-        QuestionModel question = questions.get(questionID);
-        String type = question.getClass().getSimpleName();
-
-        String questionTitle = "";
-
-        switch (type) {
-            case "OpenQuestion":
-                List<AnswerModel> responses = question.getResponses();
-                questionTitle = "Responses for Question: " + question.getName() + "[id =" + id + "]";
-                model.addAttribute("questionTitle", questionTitle);
-                model.addAttribute("responses", responses);
-                return "OpenResult";
-        }
-
-        return "viewSurvey";
-    }
-
-
 }

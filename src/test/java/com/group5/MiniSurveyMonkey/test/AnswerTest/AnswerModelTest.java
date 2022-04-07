@@ -11,26 +11,26 @@ public class AnswerModelTest {
     private AnswerModel a;
 
     @Test
-    public void testId(){
+    public void testId() {
         a = new AnswerModel();
         a.setId(1);
         assertEquals(a.getId(), 1);
     }
 
     @Test
-    public void TestAnswerSet(){
+    public void TestAnswerSet() {
         a = new AnswerModel();
         a.setAnswer("Answer1");
-        assertEquals(a.getAnswer(),"Answer1");
+        assertEquals(a.getAnswer(), "Answer1");
     }
 
     @Test
-    public void TestQuestionSet(){
+    public void TestQuestionSet() {
         a = new AnswerModel();
         QuestionModel q = new QuestionModel();
         q.setId(1);
         q.setName("Test1");
-       // q.setType(QuestionType.MC);
+        // q.setType(QuestionType.MC);
 
         a.setQuestion(q);
 

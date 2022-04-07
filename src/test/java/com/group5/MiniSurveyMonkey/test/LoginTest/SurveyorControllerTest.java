@@ -18,8 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(controllers = {LoginController.class, SurveyorController.class})
 @AutoConfigureMockMvc
-public class SurveyorControllerTest
-{
+public class SurveyorControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
@@ -30,17 +29,15 @@ public class SurveyorControllerTest
     private UserRepository userRepository;
 
     @Test
-    public void successfulSurveyorLogin() throws Exception
-    {
+    public void successfulSurveyorLogin() throws Exception {
         this.mockMvc.perform(post("/")
-                .param("user", "surveyor")
-                .param("password", "surveyor"))
+                        .param("user", "surveyor")
+                        .param("password", "surveyor"))
                 .andDo(print()).andExpect(status().isOk());
     }
 
     @Test
-    public void shouldReturnSurveyorIndex() throws Exception
-    {
+    public void shouldReturnSurveyorIndex() throws Exception {
         this.mockMvc.perform(post("/")
                         .param("user", "surveyor")
                         .param("password", "surveyor"))
@@ -50,8 +47,7 @@ public class SurveyorControllerTest
     }
 
     @Test
-    public void viewSurveyAsSurveyor() throws Exception
-    {
+    public void viewSurveyAsSurveyor() throws Exception {
         this.mockMvc.perform(post("/")
                         .param("user", "surveyor")
                         .param("password", "surveyor"))

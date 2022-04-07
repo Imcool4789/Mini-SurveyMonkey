@@ -1,34 +1,39 @@
 package com.group5.MiniSurveyMonkey.Question;
 
 import com.group5.MiniSurveyMonkey.Answer.NumberRangeAnswer;
-import com.group5.MiniSurveyMonkey.Answer.OpenAnswer;
 import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
 
 import javax.persistence.DiscriminatorValue;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Entity
 @DiscriminatorValue("NumberRangeQuestion")
-public class NumberRangeQuestion extends QuestionModel
-{
+public class NumberRangeQuestion extends QuestionModel {
     private int min;
     private int max;
     private int num;
 
-    public NumberRangeQuestion()
-    {
+    @ElementCollection
+    private Map<String, Integer> responseMap;
+
+    public NumberRangeQuestion() {
         super();
-        this.min = 0;
-        this.max = 10;
-        this.num = 0;
+        min = 0;
+        max = 10;
+        num = 0;
+        responseMap = new LinkedHashMap<>();
     }
 
-    public NumberRangeQuestion(int min, int max, int num, String name, SurveyModel survey)
-    {
+    public NumberRangeQuestion(String name, SurveyModel survey, int min, int max) {
         super();
         this.min = min;
         this.max = max;
-        this.num = num;
+        num = 0;
+        responseMap = new LinkedHashMap<>();
+        survey.addQuestion(this);
         super.setName(name);
         super.setSurvey(survey);
     }
@@ -57,10 +62,28 @@ public class NumberRangeQuestion extends QuestionModel
         this.num = num;
     }
 
-    public void addResponse (NumberRangeAnswer response){
+    public void addResponse(NumberRangeAnswer response) {
         super.getResponses().add(response);
     }
 
+    public Map<String, Integer> getResponseMap() {
+        return responseMap;
+    }
+
+    public void setResponseMap(Map<String, Integer> responseMap) {
+        this.responseMap = responseMap;
+    }
+
+    public Object[][] convertTo2DArray() {
+        Object[][] newArr = new Object[responseMap.size()][2];
+        int i = 0;
+        for (Map.Entry<String, Integer> entry : responseMap.entrySet()) {
+            newArr[i][0] = entry.getKey();
+            newArr[i][1] = entry.getValue();
+            i++;
+        }
+        return newArr;
+    }
 
     @Override
     public String toString() {

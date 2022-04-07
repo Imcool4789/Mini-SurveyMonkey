@@ -1,10 +1,10 @@
 package com.group5.MiniSurveyMonkey.Answer;
 
 import com.group5.MiniSurveyMonkey.Question.NumberRangeQuestion;
-import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import java.util.Map;
 
 @Entity
 @DiscriminatorValue("NumberRangeAnswer")
@@ -16,11 +16,14 @@ public class NumberRangeAnswer extends AnswerModel {
         this.num = 1;
     }
 
-    public NumberRangeAnswer(int num, SurveyModel survey, NumberRangeQuestion question) {
+    public NumberRangeAnswer(int num, NumberRangeQuestion question) {
         super();
-        this.num = 1;
-        super.setSurvey(survey);
+        this.num = num;
+        super.setSurvey(question.getSurvey());
         super.setQuestion(question);
+        this.updateResponses(num, question);
+        question.addResponse(this);
+        updateResponses(num, question);
     }
 
     public NumberRangeAnswer(int num) {
@@ -33,6 +36,11 @@ public class NumberRangeAnswer extends AnswerModel {
 
     public void setNum(int num) {
         this.num = num;
+    }
+
+    public void updateResponses(int num, NumberRangeQuestion question) {
+        Map<String, Integer> questionResponses = question.getResponseMap();
+        questionResponses.put(String.valueOf(num), questionResponses.getOrDefault(String.valueOf(num), 0) + 1);
     }
 
 }

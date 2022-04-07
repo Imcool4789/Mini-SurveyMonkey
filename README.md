@@ -1,19 +1,26 @@
 # Mini-Survey Monkey [Group 5] [![CircleCI](https://circleci.com/gh/Imcool4789/Mini-SurveyMonkey/tree/master.svg?style=svg)](https://circleci.com/gh/Imcool4789/Mini-SurveyMonkey/tree/master)
 
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![Thymeleaf](https://img.shields.io/badge/Thymeleaf-%23005C0F.svg?style=for-the-badge&logo=Thymeleaf&logoColor=white)
+![CircleCI](https://img.shields.io/badge/circle%20ci-%23161616.svg?style=for-the-badge&logo=circleci&logoColor=white)
+![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+
 ## Project Description
 
-The Mini-SurveyMonkey Spring Boot application will allow a surveyor to create a survey with a list of questions that can be of varying types such as multiple choice, number range, and open ended. At any point in time, the surveyor will be able to close the survey and obtain the responses. The users will be able to view and fill out the survey created by the surveyor and allow their responses to be saved and upon successful submission, the survey will output the result of each question either as simple text, histogram, or pie chart depending on the type of question asked in the survey. 
+The Mini-SurveyMonkey Spring Boot application will allow a surveyor to create a survey with a list of questions that can be of varying types such as multiple choice, number range, and open ended. At any point in time, the surveyor will be able to close the survey and obtain the responses. The users will be able to view and fill out the survey created by the surveyor and allow their responses to be saved and upon successful submission, the survey will output the result of each question either as simple text, histogram, or pie chart depending on the type of question asked in the survey.
 
 The repository is sorted into various packages such as `Login`, `Survey`, `Question`, `Answer` and these packages group together classes relevant to the specific package name. E.x. `Login` will contain model, repository and controller classes relevant to the act of logging into the app.
 
 ## Relevant Links
-- [CircleCI](https://circleci.com/gh/Imcool4789/Mini-SurveyMonkey/tree/master) 
+
+- [CircleCI](https://circleci.com/gh/Imcool4789/Mini-SurveyMonkey/tree/master)
 - [Heroku App Link](https://minisurveymonkey.herokuapp.com/)
 - [Kanban Project Board](https://github.com/Imcool4789/Mini-SurveyMonkey/projects/1)
 
 ## Authors
 
-- John Warde 
+- John Warde
 - Kashish Saxena
 - Vis Kirubakaran
 

@@ -13,10 +13,10 @@
     <div id="questionDeletion">
       <h2>Question Deleted</h2>
       <form
-        action="#"
-        th:action="@{/surveyorIndex/deleteQuestion}"
-        th:object="${question}"
-        method="post"
+              action="#"
+              th:action="@{'/surveyorIndex/deleteQuestion/' + ${questionModel.id}}"
+              th:object="${question}"
+              method="post"
       >
         <p>Question deleted successfully.</p>
       </form>

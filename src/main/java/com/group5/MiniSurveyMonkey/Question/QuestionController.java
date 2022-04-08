@@ -5,10 +5,7 @@ import com.group5.MiniSurveyMonkey.Survey.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class QuestionController {
@@ -37,7 +34,7 @@ public class QuestionController {
                 openQuestion.setSurvey(surveyModel);
                 openQuestion.setId(question.getId());
                 openQuestion.setName(question.getName());
-                surveyModel.addQuestion(openQuestion);
+                //surveyModel.addQuestion(openQuestion);
                 questionRepository.save(openQuestion);
                 surveyRepository.save(surveyModel);
                 break;
@@ -46,7 +43,7 @@ public class QuestionController {
                 mcQuestion.setId(question.getId());
                 mcQuestion.setName(question.getName());
                 mcQuestion.addOpt();
-                surveyModel.addQuestion(mcQuestion);
+                //surveyModel.addQuestion(mcQuestion);
                 questionRepository.save(mcQuestion);
                 surveyRepository.save(surveyModel);
                 break;
@@ -54,7 +51,7 @@ public class QuestionController {
                 numberRangeQuestion.setSurvey(surveyModel);
                 numberRangeQuestion.setId(question.getId());
                 numberRangeQuestion.setName(question.getName());
-                surveyModel.addQuestion(numberRangeQuestion);
+                //surveyModel.addQuestion(numberRangeQuestion);
                 questionRepository.save(numberRangeQuestion);
                 surveyRepository.save(surveyModel);
                 break;
@@ -76,8 +73,8 @@ public class QuestionController {
         return "createQuestion";
     }
 
-    @PostMapping(value = "deleteQuestion")
-    public String deleteQuestion(@RequestParam("id") long id,
+    @GetMapping("/surveyorIndex/deleteQuestion/{id}")
+    public String deleteQuestion(@PathVariable("id") String id,
                                  @ModelAttribute("question") QuestionModel question,
                                  Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
@@ -85,10 +82,13 @@ public class QuestionController {
             surveyModel = new SurveyModel();
             surveyRepository.save(surveyModel);
         }
-        surveyModel.removeQuestion((int) question.getId() - 1);
-        questionRepository.deleteById(id);
+        int questionId = Integer.parseInt(id) - 1;
+        surveyModel.removeQuestion(questionId);
+        System.out.println(surveyModel.getSurveyQuestions().get(questionId));
+        //questionRepository.deleteById(id);
+        surveyRepository.save(surveyModel);
 
-        model.addAttribute("question", question);
+        model.addAttribute("questionModel", question);
         model.addAttribute("surveyQuestions", surveyModel);
 
         return "deleteQuestion";

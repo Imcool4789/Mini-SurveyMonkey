@@ -34,7 +34,7 @@ public class AnswerController {
         return answerRepository.findAll();
     }
 
-    @GetMapping("/surveyorIndex/Question/{id}")
+    @GetMapping({"/surveyorIndex/Question/{id}", "/userIndex/Question/{id}"})
     public String showQuestionForm(@PathVariable String id,
                                    Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
@@ -77,7 +77,7 @@ public class AnswerController {
         return "OpenAnswer";
     }
 
-    @PostMapping(value = "/surveyorIndex/Question/{id}")
+    @PostMapping({"/userIndex/Question/{id}", "/surveyorIndex/Question/{id}"})
     public String addNumAnswer(@PathVariable String id,
                                @RequestParam("answer") String answer, @RequestParam(value = "action", required = true) String action,
                                Model model) {
@@ -98,11 +98,32 @@ public class AnswerController {
 
         switch (type){
             case "NumberRangeQuestion":
+                int temp = 0;
+                boolean numeric = true;
+                try {
+                    Integer num = Integer.parseInt(answer);
+                } catch (NumberFormatException e) {
+                    numeric = false;
+                }
                 NumberRangeQuestion numQuestion = (NumberRangeQuestion) question;
                 if(answer.equals("")){
-                    answer = "0";
+                    temp = 0;
                 }
-                NumberRangeAnswer numAnswer = new NumberRangeAnswer(Integer.parseInt(answer), numQuestion);
+                if(!numeric){
+                    temp = numQuestion.getMin();
+                }
+                else {
+                    temp = Integer.parseInt(answer);
+                }
+
+                if(temp > numQuestion.getMax()){
+                    temp = numQuestion.getMax();
+                }
+
+                if(temp < numQuestion.getMin()){
+                    temp = numQuestion.getMin();
+                }
+                NumberRangeAnswer numAnswer = new NumberRangeAnswer(temp, numQuestion);
                 answerRepository.save(numAnswer);
                 questionRepository.save(numQuestion);
                 break;
@@ -131,22 +152,22 @@ public class AnswerController {
         switch (action){
             case "Next":
                 if(Integer.parseInt(id) < surveyModel.getQuestionNum()){
-                    String str = "redirect:/surveyorIndex/Question/" + next;
+                    String str = "redirect:/userIndex/Question/" + next;
                     return str;
                 }
                 else{
-                    return "redirect:/surveyorIndex/Question/{id}/Result";
+                    return "redirect:/userIndex/Result";
                 }
             case "Previous":
                 if(Integer.parseInt(id) > 1){
-                    String str = "redirect:/surveyorIndex/Question/" + prev;
+                    String str = "redirect:/userIndex/Question/" + prev;
                     return str;
                 }
                 else{
-                    return "redirect:/surveyorIndex/Question/{id}/Result";
+                    return "redirect:/userIndex/Question/{id}";
                 }
         }
 
-        return "redirect:/surveyorIndex/Question/{id}/Result";
+        return "redirect:/userIndex/Question/{id}/Result";
     }
 }

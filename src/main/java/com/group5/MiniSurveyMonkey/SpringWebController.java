@@ -18,6 +18,8 @@ public class SpringWebController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         System.out.println(authentication);
+        if (currentPrincipalName == "surveyor") return "redirect:/surveyorIndex";
+        else if (currentPrincipalName == "user") return "redirect:/userIndex";
         return "index";
     }
 

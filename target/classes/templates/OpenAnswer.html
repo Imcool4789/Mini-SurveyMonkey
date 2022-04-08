@@ -8,7 +8,7 @@
 </head>
 <style>
     h1 {text-align: center;}
-    progress {text-align: center;}
+    body {text-align: center;}
     .btn-group button {
         background-color: #04AA6D; /* Green background */
         border: 1px solid green; /* Green border */
@@ -43,13 +43,12 @@
     <form action ="#" th:action="@{'/surveyorIndex/Question/' + ${questionModel.id}}" method="post">
             <h2 th:text="${questionModel.name}"/>
             <input type="text" field="answer" name="answer"></br></br>
-            </br></br>
+            </br>
 
         <div class="btn-group">
             <input type="submit" name="action" value ="Previous">
             <input type="submit" name="action" value ="Next">
         </div>
-        <input type="submit" value ="Submit Answers"></br>
     </form>
 </body>
 </html>

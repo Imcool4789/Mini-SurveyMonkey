@@ -8,7 +8,7 @@
 </head>
 <style>
     h1 {text-align: center;}
-    progress {text-align: center;}
+    body {text-align: center;}
     .btn-group button {
         background-color: #04AA6D; /* Green background */
         border: 1px solid green; /* Green border */
@@ -38,8 +38,9 @@
     <li><a href="/">Home</a></li>
 </ul>
 <body>
-<h1>Multiple Choice Answer</h1>
-<progress id="file" th:value="${questionModel.id}" th:max="${surveyModel.getQuestionNum()}"></progress>
+<h1>Multiple Choice  Answer</h1>
+<progress id="file" th:value="${questionModel.id}" th:max="${surveyModel.getQuestionNum()}" style="vertical-align: middle"></progress>
+</br>
 <form action ="#" th:action="@{'/surveyorIndex/Question/' + ${questionModel.id}}" method="post">
     <div>
         <div>
@@ -65,7 +66,6 @@
         <input type="submit" name="action" value ="Next">
     </div>
     </br>
-    <input type="submit" value ="Submit Answers"></br>
 </form>
 
 </body>

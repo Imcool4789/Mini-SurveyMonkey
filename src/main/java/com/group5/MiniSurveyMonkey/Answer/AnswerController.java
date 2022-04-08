@@ -24,6 +24,9 @@ public class AnswerController {
     @Autowired
     private AnswerRepository answerRepository;
 
+    public AnswerController(AnswerRepository rep) {
+    }
+
     @GetMapping(value = "/answers")
     public List<AnswerModel> getAll() {
         return answerRepository.findAll();

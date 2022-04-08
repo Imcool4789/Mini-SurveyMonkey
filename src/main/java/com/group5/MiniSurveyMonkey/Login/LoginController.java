@@ -22,7 +22,7 @@ public class LoginController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         System.out.println(currentPrincipalName);
-        return "/";
+        return "/index";
     }
 
     @GetMapping("/logout")

@@ -29,10 +29,10 @@ public class SurveyModelTest {
         surveyModel.addQuestion(question);
         assertEquals(surveyModel.getSurveyQuestions().get(0), question);
 
+        surveyModel.removeQuestion(0);
         MCQuestion question2 = new MCQuestion("Question 2", surveyModel);
         surveyModel.addQuestion(question2);
-        surveyModel.removeQuestion(0);
-        assertEquals(surveyModel.getSurveyQuestions().get(0), question2);
+        assertEquals(surveyModel.getSurveyQuestions().get(0), question);
     }
 
     @Test

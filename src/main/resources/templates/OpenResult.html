@@ -38,7 +38,7 @@
     </tr>
     <tr th:each="response : ${responses}">
         <td th:text="${responses.indexOf(response) + 1}"/>
-        <td th:text="${response.getAnswer()}"/>
+        <td th:text="${response}"/>
     </tr>
 </table>
 </body>

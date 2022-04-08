@@ -26,6 +26,7 @@ public class QuestionController {
                               @ModelAttribute("numberRange") NumberRangeQuestion numberRangeQuestion,
                               @ModelAttribute("question") QuestionModel question,
                               Model model) {
+
         SurveyModel surveyModel = surveyRepository.findById(1);
         if (surveyModel == null) {
             surveyModel = new SurveyModel();
@@ -59,7 +60,8 @@ public class QuestionController {
                 surveyRepository.save(surveyModel);
                 break;
         }
-        return "redirect:viewSurvey";
+
+        return "createQuestion";
     }
 
     @GetMapping("/surveyorIndex/createQuestion")

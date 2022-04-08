@@ -1,5 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
+<style>
+  .dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {background-color: #ddd;}
+
+  .dropdown:hover .dropdown-content {display: block;}
+
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
   <head>
     <title>Mini-Survey Monkey</title>
     <link rel="stylesheet" th:href="@{./reset.css}" />
@@ -8,10 +44,17 @@
   </head>
   <body>
     <ul>
-      <li><a href="/index">Home</a></li>
-      <li><a href="/viewSurvey">View Survey</a></li>
+      <li><a href="/userIndex">Home</a></li>
+      <li><a href="/surveyorIndex/Question/1">Start Survey</a></li>
       <li><a href="/logout">Logout</a></li>
     </ul>
+    <div class="dropdown">
+      <button class="dropbtn">View as</button>
+      <div class="dropdown-content">
+        <a href="/surveyorIndex">Surveyor</a>
+        <a href="/userIndex">User</a>
+      </div>
+    </div>
     <footer>
       <p id="copyright">Copyright &copy; 2022 Mini-SurveyMonkey Group 5</p>
     </footer>

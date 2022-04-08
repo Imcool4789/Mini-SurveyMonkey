@@ -1,8 +1,10 @@
 package com.group5.MiniSurveyMonkey.test.LoginTest;
 
+import com.group5.MiniSurveyMonkey.Login.DBUserDetailsService;
 import com.group5.MiniSurveyMonkey.Login.LoginController;
 import com.group5.MiniSurveyMonkey.Login.UserController;
 import com.group5.MiniSurveyMonkey.Login.UserRepository;
+import com.group5.MiniSurveyMonkey.SpringWebController;
 import com.group5.MiniSurveyMonkey.Survey.SurveyRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +18,12 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(controllers = {LoginController.class, UserController.class})
+@WebMvcTest(controllers = {SpringWebController.class, LoginController.class, UserController.class})
 @AutoConfigureMockMvc
 public class UserControllerTest {
+    @MockBean
+    DBUserDetailsService dbUserDetailsService;
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -30,29 +35,31 @@ public class UserControllerTest {
 
     @Test
     public void successfulUserLogin() throws Exception {
-        this.mockMvc.perform(post("/")
-                        .param("user", "user1")
-                        .param("password", "password"))
-                .andDo(print()).andExpect(status().isOk());
+        mockMvc.perform(post("/login")
+                        .param("user", "user")
+                        .param("password", "user"))
+                .andDo(print()).andExpect(status().isFound());
     }
 
     @Test
     public void shouldReturnUserIndex() throws Exception {
-        this.mockMvc.perform(post("/")
-                        .param("user", "user1")
-                        .param("password", "password"))
-                .andDo(print()).andExpect(status().isOk());
-        this.mockMvc.perform(get("/userIndex"))
-                .andDo(print()).andExpect(status().isOk());
+        mockMvc.perform(post("/login")
+                        .param("user", "user")
+                        .param("password", "user"))
+                .andDo(print()).andExpect(status().isFound());
+
+        mockMvc.perform(get("/userIndex"))
+                .andDo(print()).andExpect(status().isFound());
     }
 
     @Test
     public void viewSurveyAsUser() throws Exception {
-        this.mockMvc.perform(post("/")
-                        .param("user", "user1")
-                        .param("password", "password"))
-                .andDo(print()).andExpect(status().isOk());
-        this.mockMvc.perform(get("/userIndex/viewSurvey"))
-                .andDo(print()).andExpect(status().isOk());
+        mockMvc.perform(post("/login")
+                        .param("user", "user")
+                        .param("password", "user"))
+                .andDo(print()).andExpect(status().isFound());
+
+        mockMvc.perform(get("/userIndex/viewSurvey"))
+                .andDo(print()).andExpect(status().isFound());
     }
 }

@@ -44,9 +44,11 @@ public class ResultsController {
         switch (type) {
             case "OpenQuestion":
                 OpenQuestion openQuestion = (OpenQuestion) question;
+                List<String> responses = new ArrayList<String>(openQuestion.getResponseMap().values());
+
                 questionTitle = "Responses for Question: " + question.getName() + "[id =" + id + "]";
                 model.addAttribute("questionTitle", questionTitle);
-                model.addAttribute("responses", openQuestion.convertTo2DArray());
+                model.addAttribute("responses", responses);
                 return "OpenResult";
             case "NumberRangeQuestion":
                 NumberRangeQuestion numberRangeQuestion = (NumberRangeQuestion) question;

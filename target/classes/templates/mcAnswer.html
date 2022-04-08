@@ -44,19 +44,19 @@
 <form action ="#" th:action="@{'/surveyorIndex/Question/' + ${questionModel.id}}" method="post">
     <div>
         <div>
-            <input type="radio" th:value="${mcQuestion.getMc1()}">
-            <label th:text="${mcQuestion.getMc1()}"> </label>
+            <input type="radio" name="answer" field="answer" th:value="${mcQuestion.getMc1()}">
+            <label th:text="${mcQuestion.getMc1()}" checked="checked"> </label>
         </div>
         <div>
-            <input type="radio" th:value="${mcQuestion.getMc2()}">
+            <input type="radio" name="answer" field="answer" th:value="${mcQuestion.getMc2()}">
             <label th:text="${mcQuestion.getMc2()}"> </label>
         </div>
         <div>
-            <input type="radio" th:value="${mcQuestion.getMc3()}">
+            <input type="radio" name="answer" field="answer" th:value="${mcQuestion.getMc3()}">
             <label th:text="${mcQuestion.getMc3()}"> </label>
         </div>
         <div>
-            <input type="radio" th:value="${mcQuestion.getMc4()}">
+            <input type="radio" name="answer" field="answer" th:value="${mcQuestion.getMc4()}">
             <label th:text="${mcQuestion.getMc4()}"> </label>
         </div>
     </div>

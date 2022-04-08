@@ -24,9 +24,6 @@ public class AnswerController {
     @Autowired
     private AnswerRepository answerRepository;
 
-    public AnswerController(AnswerRepository rep) {
-    }
-
     @GetMapping(value = "/answers")
     public List<AnswerModel> getAll() {
         return answerRepository.findAll();
@@ -106,6 +103,7 @@ public class AnswerController {
             case "MCQuestion":
                 MCQuestion mcQuestion = (MCQuestion) questions.get(questionID);
                 MCAnswer mcAnswer = new MCAnswer(answer,mcQuestion);
+                System.out.println(answer);
                 responses = mcQuestion.getResponses();
                 responses.add(mcAnswer);
                 answerRepository.save(mcAnswer);
@@ -114,8 +112,8 @@ public class AnswerController {
             case "OpenQuestion":
                 OpenQuestion openQuestion = (OpenQuestion) questions.get(questionID);
                 OpenAnswer openAnswer = new OpenAnswer(answer, openQuestion);
-                //responses = openQuestion.getResponses();
-                //responses.add(openAnswer);
+                responses = openQuestion.getResponses();
+                responses.add(openAnswer);
                 answerRepository.save(openAnswer);
                 questionRepository.save(openQuestion);
                 break;
@@ -132,8 +130,7 @@ public class AnswerController {
             case "Next":
                 if(Integer.parseInt(id) < surveyModel.getQuestionNum()){
                     String str = "redirect:/surveyorIndex/Question/" + next;
-                    //return str;
-                    return "redirect:/surveyorIndex/Question/{id}/Result";
+                    return str;
                 }
                 else{
                     return "redirect:/surveyorIndex/Question/{id}/Result";

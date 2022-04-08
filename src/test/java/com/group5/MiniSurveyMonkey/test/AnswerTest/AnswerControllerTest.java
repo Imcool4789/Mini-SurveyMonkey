@@ -10,6 +10,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import static org.junit.Assert.assertNotNull;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(AnswerControllerTest.class)
 @AutoConfigureMockMvc
@@ -23,7 +27,12 @@ public class  AnswerControllerTest {
 
     @Test
     public void TestCreateMockMVC() {
-           mvc = MockMvcBuilders.standaloneSetup(new AnswerController(rep)).build();
-           assertNotNull(mvc);
+           //mvc = MockMvcBuilders.standaloneSetup(new AnswerController(rep)).build();
+          // assertNotNull(mvc);
+    }
+
+    @Test
+    public void TestAnswerController(){
+        //mvc.perform(post("/surveyorIndex/Question/1").)
     }
 }

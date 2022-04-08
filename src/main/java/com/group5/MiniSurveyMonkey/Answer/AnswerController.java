@@ -89,7 +89,7 @@ public class AnswerController {
         List<QuestionModel> questions = surveyModel.getSurveyQuestions();
         QuestionModel question = questions.get(questionID);
         String type = question.getClass().getSimpleName();
-        List<AnswerModel> responses = null;
+       // List<AnswerModel> responses = null;
 
         switch (type){
             case "NumberRangeQuestion":
@@ -98,7 +98,7 @@ public class AnswerController {
                     answer = "0";
                 }
                 NumberRangeAnswer numAnswer = new NumberRangeAnswer(Integer.parseInt(answer), numQuestion);
-                responses = numQuestion.getResponses();
+                //responses = numQuestion.getResponses();
                // responses.add(numAnswer);
                 answerRepository.save(numAnswer);
                 questionRepository.save(numQuestion);
@@ -106,7 +106,7 @@ public class AnswerController {
             case "MCQuestion":
                 MCQuestion mcQuestion = (MCQuestion) questions.get(questionID);
                 MCAnswer mcAnswer = new MCAnswer(answer,mcQuestion);
-                responses = mcQuestion.getResponses();
+                //responses = mcQuestion.getResponses();
               //  responses.add(mcAnswer);
                 answerRepository.save(mcAnswer);
                 questionRepository.save(mcQuestion);
@@ -114,7 +114,7 @@ public class AnswerController {
             case "OpenQuestion":
                 OpenQuestion openQuestion = (OpenQuestion) questions.get(questionID);
                 OpenAnswer openAnswer = new OpenAnswer(answer, openQuestion);
-                responses = openQuestion.getResponses();
+                //responses = openQuestion.getResponses();
                 //responses.add(openAnswer);
                 answerRepository.save(openAnswer);
                 questionRepository.save(openQuestion);

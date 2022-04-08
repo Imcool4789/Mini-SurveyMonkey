@@ -1,8 +1,10 @@
 package com.group5.MiniSurveyMonkey.test.LoginTest;
 
+import com.group5.MiniSurveyMonkey.Login.DBUserDetailsService;
 import com.group5.MiniSurveyMonkey.Login.LoginController;
 import com.group5.MiniSurveyMonkey.Login.SurveyorController;
 import com.group5.MiniSurveyMonkey.Login.UserRepository;
+import com.group5.MiniSurveyMonkey.SpringWebController;
 import com.group5.MiniSurveyMonkey.Survey.SurveyRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +18,12 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(controllers = {LoginController.class, SurveyorController.class})
+@WebMvcTest(controllers = {SpringWebController.class, LoginController.class, SurveyorController.class})
 @AutoConfigureMockMvc
 public class SurveyorControllerTest {
+    @MockBean
+    DBUserDetailsService dbUserDetailsService;
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -30,29 +35,31 @@ public class SurveyorControllerTest {
 
     @Test
     public void successfulSurveyorLogin() throws Exception {
-        this.mockMvc.perform(post("/")
+        mockMvc.perform(post("/login")
                         .param("user", "surveyor")
                         .param("password", "surveyor"))
-                .andDo(print()).andExpect(status().isOk());
+                .andDo(print()).andExpect(status().isFound());
     }
 
     @Test
     public void shouldReturnSurveyorIndex() throws Exception {
-        this.mockMvc.perform(post("/")
+        mockMvc.perform(post("/login")
                         .param("user", "surveyor")
                         .param("password", "surveyor"))
-                .andDo(print()).andExpect(status().isOk());
-        this.mockMvc.perform(get("/surveyorIndex"))
-                .andDo(print()).andExpect(status().isOk());
+                .andDo(print()).andExpect(status().isFound());
+
+        mockMvc.perform(get("/surveyorIndex"))
+                .andDo(print()).andExpect(status().isFound());
     }
 
     @Test
     public void viewSurveyAsSurveyor() throws Exception {
-        this.mockMvc.perform(post("/")
+        mockMvc.perform(post("/login")
                         .param("user", "surveyor")
                         .param("password", "surveyor"))
-                .andDo(print()).andExpect(status().isOk());
-        this.mockMvc.perform(get("/surveyorIndex/viewSurvey"))
-                .andDo(print()).andExpect(status().isOk());
+                .andDo(print()).andExpect(status().isFound());
+
+        mockMvc.perform(get("/surveyorIndex/viewSurvey"))
+                .andDo(print()).andExpect(status().isFound());
     }
 }

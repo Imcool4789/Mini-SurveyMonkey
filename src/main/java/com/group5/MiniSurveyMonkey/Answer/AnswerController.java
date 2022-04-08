@@ -1,5 +1,6 @@
 package com.group5.MiniSurveyMonkey.Answer;
 
+import com.group5.MiniSurveyMonkey.Login.UserRepository;
 import com.group5.MiniSurveyMonkey.Question.OpenQuestion;
 import com.group5.MiniSurveyMonkey.Question.QuestionModel;
 import com.group5.MiniSurveyMonkey.Question.QuestionRepository;
@@ -17,6 +18,9 @@ import java.util.List;
 
 @Controller
 public class AnswerController {
+    @Autowired
+    private UserRepository userRepository;
+
     @Autowired
     private QuestionRepository questionRepository;
 

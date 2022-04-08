@@ -8,8 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class UserController
-{
+public class UserController {
     @Autowired
     private SurveyRepository surveyRepository;
 
@@ -17,27 +16,24 @@ public class UserController
     private UserRepository userRepository;
 
     @GetMapping("/userIndex")
-    public String localLogin(Model model)
-    {
-        LocalUser user = userRepository.findById(1);
-        model.addAttribute("localUser", user);
+    public String localLogin(Model model) {
+        User user = userRepository.findById(1);
+        model.addAttribute("User", user);
         return "userIndex";
     }
 
     @GetMapping("/userIndex/viewSurvey")
-    public String viewSurvey(Model model)
-    {
-        LocalUser user = userRepository.findById(1);
+    public String viewSurvey(Model model) {
+        User user = userRepository.findById(1);
         SurveyModel surveyModel = surveyRepository.findById(1);
-        if (surveyModel == null)
-        {
+        if (surveyModel == null) {
             surveyModel = new SurveyModel();
             surveyRepository.save(surveyModel);
         }
         String surveyTitle = "Questions for " + surveyModel.getName() + "[id =" + surveyModel.getId() + "]";
 
         model.addAttribute("surveyTitle", surveyTitle);
-        model.addAttribute("localUser", user);
+        model.addAttribute("User", user);
         model.addAttribute("surveyModel", surveyModel);
         return "viewSurvey";
     }

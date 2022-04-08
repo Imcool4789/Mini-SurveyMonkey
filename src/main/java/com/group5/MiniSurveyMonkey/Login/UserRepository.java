@@ -4,10 +4,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends CrudRepository<LocalUser, Long> {
-    LocalUser findById(long id);
+public interface UserRepository extends CrudRepository<User, Long> {
+    User findById(long id);
 
-    LocalUser findByRoles(String roles);
+    User findByRoles(String roles);
 
-    LocalUser findByUser(String user);
+    User findByUser(String user);
 }

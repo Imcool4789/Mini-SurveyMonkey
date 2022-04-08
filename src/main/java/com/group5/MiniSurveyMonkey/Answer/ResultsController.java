@@ -24,7 +24,7 @@ public class ResultsController {
     @Autowired
     private SurveyRepository surveyRepository;
 
-    @GetMapping("/surveyorIndex/Question/{id}/Result")
+    @GetMapping({"/userIndex/Question/{id}/Result","/surveyorIndex/Question/{id}/Result"})
     public String viewIndividualResult(@PathVariable String id, Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
 
@@ -67,7 +67,7 @@ public class ResultsController {
     }
 
 
-    @GetMapping("/surveyorIndex/Result")
+    @GetMapping({"/userIndex/Result", "/surveyorIndex/Result"})
     public String viewAllResult(Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
         List<QuestionModel> surveyQuestions = surveyModel.getSurveyQuestions();

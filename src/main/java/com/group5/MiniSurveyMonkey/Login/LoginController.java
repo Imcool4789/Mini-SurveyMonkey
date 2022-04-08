@@ -20,8 +20,6 @@ public class LoginController {
     @PostMapping("/login")
     public String localLogin(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        System.out.println(currentPrincipalName);
         return "/index";
     }
 

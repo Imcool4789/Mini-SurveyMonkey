@@ -43,41 +43,23 @@ public class ResultsController {
         model.addAttribute("question", question);
         switch (type) {
             case "OpenQuestion":
-                List<AnswerModel> responses = question.getResponses();
+                OpenQuestion openQuestion = (OpenQuestion) question;
                 questionTitle = "Responses for Question: " + question.getName() + "[id =" + id + "]";
                 model.addAttribute("questionTitle", questionTitle);
-                model.addAttribute("responses", responses);
+                model.addAttribute("responses", openQuestion.convertTo2DArray());
                 return "OpenResult";
             case "NumberRangeQuestion":
                 NumberRangeQuestion numberRangeQuestion = (NumberRangeQuestion) question;
-                /*TESTING*/
-                int max = 10;
-                int min = 1;
-                for (int i = 0; i < 100; i++) {
-                    int value = random.nextInt(max) + min;
-                    NumberRangeAnswer answer = new NumberRangeAnswer(value, numberRangeQuestion);
-                }
-                questionTitle = "Responses for Question: " + question.getName() + "[id =" + id + "]";
                 model.addAttribute("graphTitle", graphTitle);
                 model.addAttribute("numberRangeData", numberRangeQuestion.convertTo2DArray());
                 return "NumberRangeResult";
             case "MCQuestion":
                 MCQuestion mcQuestion = (MCQuestion) question;
                 Map<String, Integer> mcResponses = mcQuestion.getResponseMap();
-                /*TESTING*/
-                List<String> keys = new ArrayList<>(mcResponses.keySet());
-                int maxIndex = keys.size();
-                int minIndex = 0;
-                for (int i = 0; i < 100; i++) {
-                    int value = random.nextInt(maxIndex) + minIndex;
-                    String randomAnswer = keys.get(value);
-                    MCAnswer answer = new MCAnswer(randomAnswer, mcQuestion);
-                }
                 questionTitle = "Responses for Question: " + question.getName() + "[id =" + id + "]";
                 model.addAttribute("graphTitle", graphTitle);
                 model.addAttribute("MCData", mcQuestion.convertTo2DArray());
                 return "MCResult";
-
         }
         return "viewSurvey";
     }
@@ -86,46 +68,6 @@ public class ResultsController {
     @GetMapping("/surveyorIndex/Result")
     public String viewAllResult(Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
-        if (surveyModel == null) {
-            surveyModel = new SurveyModel();
-            surveyRepository.save(surveyModel);
-        }
-
-        /*TESTING*/
-        OpenQuestion question = new OpenQuestion("question 1", surveyModel);
-        OpenAnswer test = new OpenAnswer("answer 1", question);
-        OpenAnswer test2 = new OpenAnswer("answer 2", question);
-        OpenAnswer test3 = new OpenAnswer("answer 3", question);
-        surveyModel.addQuestion(question);
-
-        MCQuestion question2 = new MCQuestion("question 2", surveyModel);
-        question2.setMc1("option 1");
-        question2.setMc2("option 2");
-        question2.setMc3("option 3");
-        question2.setMc4("option 4");
-        question2.addOpt();
-
-        Random random = new Random();
-        List<String> keys = new ArrayList<>(question2.getResponseMap().keySet());
-        int maxIndex = keys.size();
-        int minIndex = 0;
-        for (int i = 0; i < 100; i++) {
-            int value = random.nextInt(maxIndex) + minIndex;
-            String randomAnswer = keys.get(value);
-            MCAnswer answer = new MCAnswer(randomAnswer, question2);
-        }
-        surveyModel.addQuestion(question2);
-
-        NumberRangeQuestion question3 = new NumberRangeQuestion("question 3", surveyModel, 1, 10);
-        int max = 10;
-        int min = 1;
-        for (int i = 0; i < 100; i++) {
-            int value = random.nextInt(max) + min;
-            NumberRangeAnswer answer = new NumberRangeAnswer(value, question3);
-        }
-        surveyModel.addQuestion(question3);
-        surveyRepository.save(surveyModel);
-
         List<QuestionModel> surveyQuestions = surveyModel.getSurveyQuestions();
         List<Object[][]> graphDatas = new ArrayList<>();
         List<String> graphTitles = new ArrayList<>();
@@ -157,9 +99,6 @@ public class ResultsController {
                 questionTypes.add(OpenQuestion.class.getSimpleName());
             }
         });
-
-        OpenAnswer answer = new OpenAnswer("answer", question);
-        question.addResponse(answer);
 
         model.addAttribute("surveyModel", surveyModel);
         model.addAttribute("questionTypes", questionTypes);

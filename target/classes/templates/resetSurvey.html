@@ -12,9 +12,9 @@
     <li><a href="/">Home</a></li>
 </ul>
 <div id="closeSurvey">
-    <h1>Survey Closed</h1>
-    <form action ="#" th:action="@{/surveyorIndex/closeSurvey}" th:object="${survey}" method="post">
-        <p>This survey has now been closed.</p>
+    <h1>Survey Reset</h1>
+    <form action ="#" th:action="@{/surveyorIndex/resetSurvey}" th:object="${survey}" method="post">
+        <p>This survey has been reset.</p>
     </form>
 </div>
 </body>

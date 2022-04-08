@@ -28,7 +28,7 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 - [x] [Working on Results Page](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/10)
 - [x] [Result Page Templates of all types](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/45)
 - [x] [User POV](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/49)
-- [ ] [Close Survey Functionality](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/59)
+- [x] [Close Survey Functionality](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/59)
 - [ ] [Delete Question Functionality](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/60)
 - [ ] [Integrating Database](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/67)
 - [ ] [Update Wiki for M3](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/74)
@@ -39,7 +39,7 @@ The repository is sorted into various packages such as `Login`, `Survey`, `Quest
 - [x] [Update README](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/81)
 - [x] [Update Diagrams and add generated ER Diagram](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/82)
 - [ ] [Reset Survey Functionality](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/83)
-- [ ] [Spring Security](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/84)
+- [x] [Spring Security](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/84)
 - [ ] [Unique Response Count](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/85)
 - [x] [Refactor Model Tests](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/87)
 - [x] [Unit and Integration Testing](https://github.com/Imcool4789/Mini-SurveyMonkey/issues/88)
@@ -59,7 +59,7 @@ To see the milestone-by-milestone progress of the project, please take a look at
 ![image](https://user-images.githubusercontent.com/56265739/162431989-f7d0e994-a048-4459-9915-1956ad734a3d.png)
 
 ### UML Class Diagram
-![image](https://github.com/Imcool4789/Mini-SurveyMonkey/blob/master/diagrams/Group5_Class_UML_Vis_Kirubakaran.png)
+![image](https://user-images.githubusercontent.com/72267229/162437435-6aa604a4-1798-4536-999e-7312c78ba793.png)
 
 
 ## Setup & Testing Instructions

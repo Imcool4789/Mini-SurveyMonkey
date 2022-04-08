@@ -25,6 +25,11 @@ public class SpringWebController {
 
     @GetMapping("/viewSurvey")
     public String showSurvey(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        System.out.println(authentication);
+        if (currentPrincipalName == "surveyor") return "redirect:/surveyorIndex/viewSurvey";
+        else if (currentPrincipalName == "user") return "redirect:/userIndex/viewSurvey";
         return "index";
     }
 

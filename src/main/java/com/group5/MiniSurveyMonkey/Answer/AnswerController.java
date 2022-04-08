@@ -89,7 +89,7 @@ public class AnswerController {
         List<QuestionModel> questions = surveyModel.getSurveyQuestions();
         QuestionModel question = questions.get(questionID);
         String type = question.getClass().getSimpleName();
-       // List<AnswerModel> responses = null;
+        List<AnswerModel> responses = null;
 
         switch (type){
             case "NumberRangeQuestion":
@@ -98,16 +98,16 @@ public class AnswerController {
                     answer = "0";
                 }
                 NumberRangeAnswer numAnswer = new NumberRangeAnswer(Integer.parseInt(answer), numQuestion);
-                //responses = numQuestion.getResponses();
-               // responses.add(numAnswer);
+                responses = numQuestion.getResponses();
+                responses.add(numAnswer);
                 answerRepository.save(numAnswer);
                 questionRepository.save(numQuestion);
                 break;
             case "MCQuestion":
                 MCQuestion mcQuestion = (MCQuestion) questions.get(questionID);
                 MCAnswer mcAnswer = new MCAnswer(answer,mcQuestion);
-                //responses = mcQuestion.getResponses();
-              //  responses.add(mcAnswer);
+                responses = mcQuestion.getResponses();
+                responses.add(mcAnswer);
                 answerRepository.save(mcAnswer);
                 questionRepository.save(mcQuestion);
                 break;
@@ -132,7 +132,8 @@ public class AnswerController {
             case "Next":
                 if(Integer.parseInt(id) < surveyModel.getQuestionNum()){
                     String str = "redirect:/surveyorIndex/Question/" + next;
-                    return str;
+                    //return str;
+                    return "redirect:/surveyorIndex/Question/{id}/Result";
                 }
                 else{
                     return "redirect:/surveyorIndex/Question/{id}/Result";

@@ -1,11 +1,10 @@
 package com.group5.MiniSurveyMonkey.Answer;
 
-import com.group5.MiniSurveyMonkey.Login.UserRepository;
-import com.group5.MiniSurveyMonkey.Question.OpenQuestion;
-import com.group5.MiniSurveyMonkey.Question.QuestionModel;
-import com.group5.MiniSurveyMonkey.Question.QuestionRepository;
-import com.group5.MiniSurveyMonkey.Survey.SurveyModel;
-import com.group5.MiniSurveyMonkey.Survey.SurveyRepository;
+
+import com.group5.MiniSurveyMonkey.*;
+import com.group5.MiniSurveyMonkey.Login.*;
+import com.group5.MiniSurveyMonkey.Question.*;
+import com.group5.MiniSurveyMonkey.Survey.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -80,46 +79,43 @@ public class AnswerController {
 
     @PostMapping(value = "/surveyorIndex/Question/{id}")
     public String addNumAnswer(@PathVariable String id,
-                                @RequestParam("answer") String answer, @RequestParam(value = "action", required = true) String action,
-                                Model model) {
+                               @RequestParam("answer") String answer, @RequestParam(value = "action", required = true) String action,
+                               Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
         if (surveyModel == null) {
             surveyModel = new SurveyModel();
             surveyRepository.save(surveyModel);
         }
 
+        System.out.println(id);
+        System.out.println(action);
+        System.out.println(answer);
+
         int questionID = Integer.parseInt(id) - 1;
         List<QuestionModel> questions = surveyModel.getSurveyQuestions();
         QuestionModel question = questions.get(questionID);
         String type = question.getClass().getSimpleName();
-        List<AnswerModel> responses = null;
 
         switch (type){
             case "NumberRangeQuestion":
-                NumberRangeQuestion numQuestion = (NumberRangeQuestion) questions.get(questionID);
+                NumberRangeQuestion numQuestion = (NumberRangeQuestion) question;
                 if(answer.equals("")){
                     answer = "0";
                 }
                 NumberRangeAnswer numAnswer = new NumberRangeAnswer(Integer.parseInt(answer), numQuestion);
-                responses = numQuestion.getResponses();
-                responses.add(numAnswer);
                 answerRepository.save(numAnswer);
                 questionRepository.save(numQuestion);
                 break;
             case "MCQuestion":
-                MCQuestion mcQuestion = (MCQuestion) questions.get(questionID);
+                MCQuestion mcQuestion = (MCQuestion) question;
                 MCAnswer mcAnswer = new MCAnswer(answer,mcQuestion);
                 System.out.println(answer);
-                responses = mcQuestion.getResponses();
-                responses.add(mcAnswer);
                 answerRepository.save(mcAnswer);
                 questionRepository.save(mcQuestion);
                 break;
             case "OpenQuestion":
-                OpenQuestion openQuestion = (OpenQuestion) questions.get(questionID);
+                OpenQuestion openQuestion = (OpenQuestion) question;
                 OpenAnswer openAnswer = new OpenAnswer(answer, openQuestion);
-                responses = openQuestion.getResponses();
-                responses.add(openAnswer);
                 answerRepository.save(openAnswer);
                 questionRepository.save(openQuestion);
                 break;
@@ -131,7 +127,7 @@ public class AnswerController {
         model.addAttribute("questionModel", surveyModel.getSurveyQuestions());
 
         int next = Integer.parseInt(id) + 1;
-        int prev = Integer.parseInt(id)-1;
+        int prev = Integer.parseInt(id) - 1;
         switch (action){
             case "Next":
                 if(Integer.parseInt(id) < surveyModel.getQuestionNum()){

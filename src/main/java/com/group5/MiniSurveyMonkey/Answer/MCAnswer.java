@@ -20,11 +20,10 @@ public class MCAnswer extends AnswerModel {
     public MCAnswer(String answer, MCQuestion question) {
         super();
         this.answer = answer;
-        super.setSurvey(question.getSurvey());
+        //super.setSurvey(question.getSurvey());
         super.setQuestion(question);
-        updateResponses(answer, question);
+        this.updateResponses(answer, question);
         question.addResponse(this);
-        updateResponses(answer, question);
     }
 
 

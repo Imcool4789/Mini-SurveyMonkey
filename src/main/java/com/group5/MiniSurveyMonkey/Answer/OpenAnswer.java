@@ -21,11 +21,10 @@ public class OpenAnswer extends AnswerModel {
     public OpenAnswer(String answer, OpenQuestion question) {
         super();
         this.answer = answer;
-        super.setAnswer(answer);
-        super.setSurvey(question.getSurvey());
         super.setQuestion(question);
+        this.updateResponses(answer, question);
         question.addResponse(this);
-        updateResponses(answer, question);
+        //super.setAnswer(answer);
     }
 
     @Override

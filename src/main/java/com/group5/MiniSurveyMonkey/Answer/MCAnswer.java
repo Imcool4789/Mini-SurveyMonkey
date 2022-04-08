@@ -27,6 +27,8 @@ public class MCAnswer extends AnswerModel {
         updateResponses(answer, question);
     }
 
+
+
     public void updateResponses(String answer, MCQuestion question) {
         Map<String, Integer> questionResponses = question.getResponseMap();
         questionResponses.put(answer, questionResponses.getOrDefault(answer, 0) + 1);

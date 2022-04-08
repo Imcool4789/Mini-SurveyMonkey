@@ -30,9 +30,6 @@ public class AnswerController {
     @Autowired
     private AnswerRepository answerRepository;
 
-    public AnswerController(AnswerRepository rep) {
-    }
-
     @GetMapping(value = "/answers")
     public List<AnswerModel> getAll() {
         return answerRepository.findAll();
@@ -112,6 +109,7 @@ public class AnswerController {
             case "MCQuestion":
                 MCQuestion mcQuestion = (MCQuestion) questions.get(questionID);
                 MCAnswer mcAnswer = new MCAnswer(answer,mcQuestion);
+                System.out.println(answer);
                 responses = mcQuestion.getResponses();
                 responses.add(mcAnswer);
                 answerRepository.save(mcAnswer);

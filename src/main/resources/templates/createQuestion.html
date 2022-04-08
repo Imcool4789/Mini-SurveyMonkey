@@ -9,11 +9,12 @@
 <body>
 <ul>
     <li><a href="/index">Home</a></li>
+    <li><a href="/surveyorIndex/viewSurvey">View Survey</a></li>
 </ul>
 <div id="questionCreation">
     <h2>Adding Question to Survey</h2>
     <form action ="#" th:action="@{/surveyorIndex/createQuestion}" th:object="${question}" method="post">
-        <p>Enter a question name: <input type="text" id ="name" th:field="*{name}" required></p>
+        <p>Enter a question name: <input type="text" onfocus="this.value=''" id ="name" th:field="*{name}" required></p> </br>
         <p>Choose a question type: <select name="type" id="type">
             <option value="MCQuestion">Multiple Choice Question</option>
             <option value="OpenQuestion">Open Ended Question</option>
@@ -67,7 +68,7 @@
             }
         </script>
         </br>
-        <input type="submit" value ="Submit">
+        <input type="submit" name="action" value ="Create Question">
     </form>
 </div>
 <footer>

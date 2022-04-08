@@ -18,7 +18,7 @@ public class DBUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUser(username);
+        DBUser user = userRepository.findByUser(username);
         if (user == null) throw new UsernameNotFoundException("User not found");
 
         List<SimpleGrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("USER"));

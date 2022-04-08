@@ -15,7 +15,7 @@ public class DBUserDetails implements UserDetails {
     private boolean active;
     private List<GrantedAuthority> authorities;
 
-    public DBUserDetails(User user) {
+    public DBUserDetails(DBUser user) {
         userName = user.getUser();
         password = user.getPassword();
         active = user.isActive();

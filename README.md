@@ -56,7 +56,7 @@ To see the milestone-by-milestone progress of the project, please take a look at
 ## Diagrams
 
 ### DB Diagram
-![image](https://github.com/Imcool4789/Mini-SurveyMonkey/blob/master/diagrams/Group5_DB_Diagram_John_Warde.png)
+![image](https://user-images.githubusercontent.com/56265739/162431989-f7d0e994-a048-4459-9915-1956ad734a3d.png)
 
 ### UML Class Diagram
 ![image](https://github.com/Imcool4789/Mini-SurveyMonkey/blob/master/diagrams/Group5_Class_UML_Vis_Kirubakaran.png)

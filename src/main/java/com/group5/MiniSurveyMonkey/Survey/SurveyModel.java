@@ -57,6 +57,14 @@ public class SurveyModel
         }
     }
 
+    public int getQuestionNum(){
+        return surveyQuestions.size();
+    }
+
+    public QuestionModel getQuestion(int id){
+        return surveyQuestions.get(id);
+    }
+
     public void addAnswer(AnswerModel answer){
         if(answer != null)
         {

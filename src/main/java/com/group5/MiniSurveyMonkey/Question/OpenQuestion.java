@@ -12,9 +12,9 @@ import java.util.Map;
 @Entity
 @DiscriminatorValue("OpenQuestion")
 public class OpenQuestion extends QuestionModel {
+
     @ElementCollection
     private Map<Integer, String> responseMap;
-
     public OpenQuestion() {
         super();
         responseMap = new LinkedHashMap<>();

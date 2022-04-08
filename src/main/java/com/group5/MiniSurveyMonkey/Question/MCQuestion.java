@@ -32,6 +32,7 @@ public class MCQuestion extends QuestionModel {
         super.setSurvey(survey);
         survey.addQuestion(this);
         responseMap = new LinkedHashMap<>();
+
     }
 
     public String getMc1() {

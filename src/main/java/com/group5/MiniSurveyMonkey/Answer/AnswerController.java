@@ -30,6 +30,9 @@ public class AnswerController {
     @Autowired
     private AnswerRepository answerRepository;
 
+    public AnswerController(AnswerRepository rep) {
+    }
+
     @GetMapping(value = "/answers")
     public List<AnswerModel> getAll() {
         return answerRepository.findAll();
@@ -49,17 +52,38 @@ public class AnswerController {
 
         QuestionModel question = questions.get(questionId);
         AnswerModel answerModel = new AnswerModel();
+        NumberRangeQuestion numQuestion = null;
+        MCQuestion mcQuestion = null;
+        if(question.getClass().getSimpleName().equals("MCQuestion")){
+            mcQuestion = (MCQuestion) surveyModel.getQuestion(questionId);
+        }
+
+        if(question.getClass().getSimpleName().equals("NumberRangeQuestion")){
+            numQuestion = (NumberRangeQuestion) surveyModel.getQuestion(questionId);
+        }
+        
 
         model.addAttribute("questionModel", question);
         model.addAttribute("answerModel", answerModel);
         model.addAttribute("surveyModel", surveyModel);
         model.addAttribute("id", id);
+        model.addAttribute("numRangeQuestion", numQuestion);
+        model.addAttribute("mcQuestion",mcQuestion);
+
+
+        if(question.getClass().getSimpleName().equals("MCQuestion")){
+            return "mcAnswer";
+        }
+        else if (question.getClass().getSimpleName().equals("NumberRangeQuestion")){
+            return "numAnswer";
+        }
+
         return "OpenAnswer";
     }
 
-    @PostMapping("/surveyorIndex/Question/{id}/OpenAnswer")
-    public String addOpenAnswer(@PathVariable String id,
-                                @RequestParam("answer") String answer,
+    @PostMapping(value = "/surveyorIndex/Question/{id}")
+    public String addNumAnswer(@PathVariable String id,
+                                @RequestParam("answer") String answer, @RequestParam(value = "action", required = true) String action,
                                 Model model) {
         SurveyModel surveyModel = surveyRepository.findById(1);
         if (surveyModel == null) {
@@ -69,19 +93,66 @@ public class AnswerController {
 
         int questionID = Integer.parseInt(id) - 1;
         List<QuestionModel> questions = surveyModel.getSurveyQuestions();
-        OpenQuestion question = (OpenQuestion) questions.get(questionID);
+        QuestionModel question = questions.get(questionID);
+        String type = question.getClass().getSimpleName();
+        List<AnswerModel> responses = null;
 
-        OpenAnswer openAnswer = new OpenAnswer(answer, question);
+        switch (type){
+            case "NumberRangeQuestion":
+                NumberRangeQuestion numQuestion = (NumberRangeQuestion) questions.get(questionID);
+                if(answer.equals("")){
+                    answer = "0";
+                }
+                NumberRangeAnswer numAnswer = new NumberRangeAnswer(Integer.parseInt(answer), numQuestion);
+                responses = numQuestion.getResponses();
+                responses.add(numAnswer);
+                answerRepository.save(numAnswer);
+                questionRepository.save(numQuestion);
+                break;
+            case "MCQuestion":
+                MCQuestion mcQuestion = (MCQuestion) questions.get(questionID);
+                MCAnswer mcAnswer = new MCAnswer(answer,mcQuestion);
+                responses = mcQuestion.getResponses();
+                responses.add(mcAnswer);
+                answerRepository.save(mcAnswer);
+                questionRepository.save(mcQuestion);
+                break;
+            case "OpenQuestion":
+                OpenQuestion openQuestion = (OpenQuestion) questions.get(questionID);
+                OpenAnswer openAnswer = new OpenAnswer(answer, openQuestion);
+                responses = openQuestion.getResponses();
+                responses.add(openAnswer);
+                answerRepository.save(openAnswer);
+                questionRepository.save(openQuestion);
+                break;
+        }
 
-        List<AnswerModel> responses = question.getResponses();
-        responses.add(openAnswer);
-
-        answerRepository.save(openAnswer);
-        questionRepository.save(question);
         surveyRepository.save(surveyModel);
 
         model.addAttribute("surveyModel", surveyModel);
         model.addAttribute("questionModel", surveyModel.getSurveyQuestions());
+
+        int next = Integer.parseInt(id) + 1;
+        int prev = Integer.parseInt(id)-1;
+        switch (action){
+            case "Next":
+                if(Integer.parseInt(id) < surveyModel.getQuestionNum()){
+                    String str = "redirect:/surveyorIndex/Question/" + next;
+                    return str;
+                }
+                else{
+                    return "redirect:/surveyorIndex/Question/{id}/Result";
+                }
+            case "Previous":
+                if(Integer.parseInt(id) > 1){
+                    String str = "redirect:/surveyorIndex/Question/" + prev;
+                    return str;
+                }
+                else{
+                    return "redirect:/surveyorIndex/Question/{id}/Result";
+                }
+        }
+
         return "redirect:/surveyorIndex/Question/{id}/Result";
     }
 }

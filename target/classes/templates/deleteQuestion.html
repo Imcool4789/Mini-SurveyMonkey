@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <title>Mini-Survey Monkey</title>
+    <link rel="stylesheet" th:href="@{./reset.css}" />
+    <link rel="stylesheet" th:href="@{./style.css}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <ul>
+      <li><a href="/">Home</a></li>
+    </ul>
+    <div id="questionDeletion">
+      <h2>Question Deleted</h2>
+      <form
+        action="#"
+        th:action="@{/surveyorIndex/deleteQuestion}"
+        th:object="${question}"
+        method="post"
+      >
+        <p>Question deleted successfully.</p>
+      </form>
+    </div>
+    <footer>
+      <p id="copyright">Copyright &copy; 2022 Mini-SurveyMonkey Group 5</p>
+    </footer>
+  </body>
+</html>

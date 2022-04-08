@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.stream.IntStream;
 
+
 @Controller
 public class ResultsController {
     @Autowired
@@ -36,7 +37,6 @@ public class ResultsController {
         List<QuestionModel> questions = surveyModel.getSurveyQuestions();
         QuestionModel question = questions.get(questionID);
         String type = question.getClass().getSimpleName();
-
         String questionTitle;
         String graphTitle = "Survey Results for Question: '" + question.getName() + "'";
         Random random = new Random();
@@ -63,6 +63,7 @@ public class ResultsController {
         }
         return "viewSurvey";
     }
+
 
     @GetMapping("/surveyorIndex/Result")
     public String viewAllResult(Model model) {

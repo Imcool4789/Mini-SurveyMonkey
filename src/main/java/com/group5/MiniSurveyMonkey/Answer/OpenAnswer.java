@@ -10,6 +10,7 @@ import java.util.Map;
 @DiscriminatorValue("OpenAnswer")
 public class OpenAnswer extends AnswerModel {
 
+
     private String answer;
 
     public OpenAnswer() {

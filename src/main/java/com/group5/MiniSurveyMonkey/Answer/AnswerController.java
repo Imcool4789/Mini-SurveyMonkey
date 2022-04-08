@@ -99,7 +99,7 @@ public class AnswerController {
                 }
                 NumberRangeAnswer numAnswer = new NumberRangeAnswer(Integer.parseInt(answer), numQuestion);
                 responses = numQuestion.getResponses();
-                responses.add(numAnswer);
+               // responses.add(numAnswer);
                 answerRepository.save(numAnswer);
                 questionRepository.save(numQuestion);
                 break;
@@ -107,7 +107,7 @@ public class AnswerController {
                 MCQuestion mcQuestion = (MCQuestion) questions.get(questionID);
                 MCAnswer mcAnswer = new MCAnswer(answer,mcQuestion);
                 responses = mcQuestion.getResponses();
-                responses.add(mcAnswer);
+              //  responses.add(mcAnswer);
                 answerRepository.save(mcAnswer);
                 questionRepository.save(mcQuestion);
                 break;
@@ -115,7 +115,7 @@ public class AnswerController {
                 OpenQuestion openQuestion = (OpenQuestion) questions.get(questionID);
                 OpenAnswer openAnswer = new OpenAnswer(answer, openQuestion);
                 responses = openQuestion.getResponses();
-                responses.add(openAnswer);
+                //responses.add(openAnswer);
                 answerRepository.save(openAnswer);
                 questionRepository.save(openQuestion);
                 break;
